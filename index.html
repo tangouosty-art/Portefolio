@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Portfolio de Queren Tangou — BTS SIO SLAM, Développement Web, Projets, Compétences." />
+  <title>Queren Tangou — Portfolio</title>
+
+  <link rel="icon" href="assets/img/favicon.ico" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- AOS Animations -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Background glow -->
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="Retour en haut">
+        <span class="logo__dot"></span>
+        <span class="logo__text">Portfolio</span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="nav__toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav__list" id="navList">
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#skills">Compétences</a></li>
+          <li><a href="#projects">Projets</a></li>
+          <li><a href="#timeline">Parcours</a></li>
+          <li><a href="#experience">Expérience</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <button class="btn btn--ghost" id="themeToggle" type="button" aria-label="Changer le thème">
+              🌙
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero section">
+      <div class="container hero__grid">
+        <div class="hero__content" data-aos="fade-right">
+          <p class="badge">BTS SIO • SLAM • Développement Web</p>
+          <h1>
+            Bonjour, je suis <span class="accent">Queren Tangou</span><br />
+            Développeuse Web 
+          </h1>
+          <p class="lead">
+            Je conçois des applications web modernes (front &amp; back),
+            avec une attention particulière à la base de données, la logique métier et la sécurité (sessions/rôles).
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#projects">Voir mes projets</a>
+            <a class="btn btn--outline" href="assets/images/New_cv.pdf" target="_blank" rel="noreferrer">
+              Télécharger mon CV
+            </a>
+          </div>
+
+          <div class="hero__meta">
+            <div class="meta-card">
+              <div class="meta-card__kpi">3+</div>
+              <div class="meta-card__text">Projets</div>
+            </div>
+            <div class="meta-card">
+              <div class="meta-card__kpi">HTML • CSS • JS</div>
+              <div class="meta-card__text">Front-end</div>
+            </div>
+            <div class="meta-card">
+              <div class="meta-card__kpi">PHP • MySQL</div>
+              <div class="meta-card__text">Back-end</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual" data-aos="fade-left">
+          <div class="hero__photo">
+            <img src="assets/images/photocv.jpg" alt="Photo de Queren Tangou" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container two-cols">
+        <div data-aos="fade-up">
+          <h2>À propos</h2>
+          <p class="muted">
+            Étudiante en BTS SIO option SLAM, je me spécialise dans la conception d’applications web.
+            J’ai réalisé plusieurs projets concrets intégrant front-end et back-end, avec une attention à la
+            structuration, la base de données et l’expérience utilisateur.
+          </p>
+
+          <!-- BTS SLAM explanation -->
+          <div class="card about-bts" data-aos="flip-up">
+            <h3>C’est quoi le BTS SIO option SLAM ?</h3>
+            <p class="muted">
+              Le <strong>BTS SIO</strong> (Services Informatiques aux Organisations) forme aux métiers de l’informatique en entreprise.
+              L’option <strong>SLAM</strong> (Solutions Logicielles et Applications Métiers) est orientée <strong>développement</strong>.
+            </p>
+            <ul class="list">
+              <li><strong>Concevoir</strong> : analyse du besoin, Merise (MCD/MLD), logique métier</li>
+              <li><strong>Développer</strong> : front (HTML/CSS/JS) + back (PHP/Node) + API</li>
+              <li><strong>Gérer les données</strong> : SQL, relations, contraintes, requêtes</li>
+              <li><strong>Sécuriser</strong> : sessions, rôles, validations, bonnes pratiques</li>
+            </ul>
+          </div>
+
+          <div class="about__highlights">
+            <div class="chip">Merise (MCD/MLD)</div>
+            <div class="chip">SQL / MySQL</div>
+            <div class="chip">Git / GitHub</div>
+            <div class="chip">CRUD &amp; rôles</div>
+            <div class="chip">WAMP / phpMyAdmin</div>
+          </div>
+
+          <div class="about__cta">
+            <a class="btn btn--outline" href="#contact">Me contacter</a>
+          </div>
+        </div>
+
+        <div class="card info-card" data-aos="zoom-in">
+          <h3>Infos rapides</h3>
+          <ul class="info-list">
+            <li><span>Localisation</span><strong>France (Les Ulis)</strong></li>
+            <li><span>Formation</span><strong>BTS SIO SLAM</strong></li>
+            <li><span>Technos</span><strong>HTML/CSS/JS • PHP • MySQL</strong></li>
+            <li><span>Objectif</span><strong>Dév Web • Admin BDD</strong></li>
+          </ul>
+          <div class="divider"></div>
+
+          <div class="links">
+            <a class="link" href="https://www.linkedin.com/in/queren-tangou-90268a22b" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="link" href="https://github.com/tangouosty-art" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <h2>Compétences</h2>
+          <p class="muted">Technologies, outils et méthodes que j’utilise au quotidien.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="card skill-card" data-aos="zoom-in-up">
+            <h3>Développement</h3>
+            <ul class="list">
+              <li>HTML5 / CSS3 (responsive)</li>
+              <li>JavaScript (DOM, fetch, validations)</li>
+              <li>PHP (sessions, rôles, CRUD)</li>
+              <li>SQL (requêtes, jointures, agrégats)</li>
+            </ul>
+          </article>
+
+          <article class="card skill-card" data-aos="zoom-in-up" data-aos-delay="100">
+            <h3>Base de données</h3>
+            <ul class="list">
+              <li>MySQL / MariaDB</li>
+              <li>Modélisation Merise (MCD/MLD)</li>
+              <li>Contraintes, index, relations</li>
+              <li>Requêtes de reporting (stock, ventes)</li>
+            </ul>
+          </article>
+
+          <article class="card skill-card" data-aos="zoom-in-up" data-aos-delay="200">
+            <h3>Outils &amp; Méthodo</h3>
+            <ul class="list">
+              <li>Git / GitHub (branches, commits)</li>
+              <li>WAMP / phpMyAdmin</li>
+              <li>Déploiement (Render / Netlify)</li>
+              <li>Organisation : pages, modules, MVC (bases)</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Tools with hover mastery -->
+        <div class="card tools-card" data-aos="fade-up">
+          <h3>Outils &amp; logiciels</h3>
+          <p class="muted small">Survole une icône pour voir mon niveau de maîtrise.</p>
+
+          <div class="tools-grid" aria-label="Outils et niveaux de maîtrise">
+            <span class="tool" role="img" aria-label="Visual Studio Code" data-label="VS Code" data-level="Avancé (80%)">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" />
+            </span>
+
+            <span class="tool" role="img" aria-label="Git" data-label="Git" data-level="Intermédiaire (70%)">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+            </span>
+
+            <span class="tool" role="img" aria-label="GitHub" data-label="GitHub" data-level="Intermédiaire (70%)">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@16.6.0/icons/github.svg" alt="GitHub" />
+            </span>
+
+            <span class="tool" role="img" aria-label="phpMyAdmin" data-label="phpMyAdmin" data-level="Avancé (80%)">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@16.6.0/icons/phpmyadmin.svg" alt="phpMyAdmin" />
+            </span>
+
+            <span class="tool" role="img" aria-label="WAMP" data-label="WAMP" data-level="Intermédiaire (65%)">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" alt="Apache (WAMP)" />
+            </span>
+
+            <span class="tool" role="img" aria-label="MySQL Workbench" data-label="MySQL Workbench" data-level="Intermédiaire (60%)">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+            </span>
+
+            <span class="tool" role="img" aria-label="Canva" data-label="Canva" data-level="Avancé (75%)">
+              <img src="assets/images/canva.svg" alt="Canva" />
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <h2>Projets</h2>
+          <p class="muted">Une sélection de projets représentatifs (conception, dev, tests, déploiement).</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="project-filters card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-filters__row">
+            <label class="filter">
+              <span>Rechercher</span>
+              <input id="projectSearch" type="search" placeholder="Ex: stock, réservation, php, mysql..." autocomplete="off" />
+            </label>
+
+            <label class="filter">
+              <span>Filtrer</span>
+              <select id="projectTag">
+                <option value="all">Tous</option>
+                <option value="php">PHP</option>
+                <option value="mysql">MySQL</option>
+                <option value="js">JavaScript</option>
+                <option value="node">Node</option>
+                <option value="paiement">Paiement</option>
+                <option value="design">Design</option>
+                <option value="securite">Sécurité</option>
+              </select>
+            </label>
+          </div>
+
+          <p class="muted small" id="projectCount" aria-live="polite"></p>
+        </div>
+
+        <div class="grid grid--3">
+          <!-- Stock-App -->
+          <article class="card project-card" data-title="Stock-App" data-tags="php mysql securite crud" data-aos="fade-up">
+            <div class="project-card__image">
+              <img src="assets/images/mockup1.png" alt="Application Stock-App - gestion de stock" loading="lazy" />
+            </div>
+            <div class="project-card__top">
+              <p class="tag">PHP • MySQL</p>
+              <h3>Stock-App</h3>
+              <p class="muted">
+                Application de gestion de stock (admin/vendeur) : produits, fournisseurs,
+                mouvements (entrée/sortie) et calcul du stock.
+              </p>
+            </div>
+            <ul class="project-card__bullets">
+              <li>Authentification + rôles</li>
+              <li>CRUD + validations</li>
+              <li>Reporting stock</li>
+            </ul>
+            <div class="project-card__actions">
+              <a class="btn btn--outline btn--sm" href="#" target="_blank" rel="noreferrer">Démo</a>
+              <a class="btn btn--ghost btn--sm" href="#" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </article>
+
+          <!-- RKbeauty -->
+          <article class="card project-card" data-title="RKbeauty" data-tags="js node paiement securite reservation" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card__image">
+              <img src="assets/images/mockup.png" alt="Site vitrine RKbeauty" loading="lazy" />
+            </div>
+            <div class="project-card__top">
+              <p class="tag">JS • HTML/CSS</p>
+              <h3>RKbeauty</h3>
+              <p class="muted">
+                Plateforme de réservation de formations en maquillage,
+                gestion des créneaux et pages client.
+              </p>
+            </div>
+            <ul class="project-card__bullets">
+              <li>Réservation</li>
+              <li>Site vitrine</li>
+              <li>Déploiement</li>
+            </ul>
+            <div class="project-card__actions">
+              <a class="btn btn--outline btn--sm" href="#" target="_blank" rel="noreferrer">Démo</a>
+              <a class="btn btn--ghost btn--sm" href="#" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </article>
+
+          <!-- Portfolio -->
+          <article class="card project-card" data-title="Portfolio" data-tags="front design js" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card__image">
+              <img src="assets/img/projects/stock-app.jpg" alt="Portfolio de Queren Tangou" loading="lazy" />
+            </div>
+            <div class="project-card__top">
+              <p class="tag">Front • Design</p>
+              <h3>Portfolio</h3>
+              <p class="muted">
+                Portfolio responsive inspiré des portfolios modernes : sections, animations légères,
+                accessibilité et performance.
+              </p>
+            </div>
+            <ul class="project-card__bullets">
+              <li>Design dark + accent</li>
+              <li>Menu mobile</li>
+              <li>Mode clair/sombre</li>
+            </ul>
+            <div class="project-card__actions">
+              <a class="btn btn--outline btn--sm" href="#top">Voir</a>
+              <a class="btn btn--ghost btn--sm" href="#" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parcours académiques & certifications -->
+    <section class="section" id="timeline">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <h2>Parcours académiques &amp; certifications</h2>
+          <p class="muted">
+            Diplômes, formations et certifications qui construisent mon profil.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <!-- BTS SIO SLAM -->
+          <div class="timeline__item" data-aos="fade-right">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content card">
+              <h4>BTS SIO — Option SLAM</h4>
+              <p class="muted small">Statut : En cours • 2024 — 2026 | Scholia</p>
+
+              <p class="muted">
+                Formation orientée développement d’applications métiers :
+                analyse du besoin, conception, développement et mise en production.
+              </p>
+
+              <p class="muted small"><strong>Compétences développées :</strong></p>
+              <ul class="list">
+                <li>Développer une application complète (front-end / back-end).</li>
+                <li>Concevoir et administrer une base de données relationnelle.</li>
+                <li>Analyser un besoin client et proposer une solution logicielle.</li>
+                <li>Travailler en équipe projet et documenter (technique / fonctionnel).</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- BTS Informatique de Gestion MIAGE -->
+          <div class="timeline__item" data-aos="fade-left">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content card">
+              <h4>BTS Informatique de Gestion — Option MIAGE</h4>
+              <p class="muted small">Diplôme obtenu • 2024</p>
+
+              <p class="muted">
+                L’option MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises)
+                fait le lien entre les besoins métiers et les solutions informatiques.
+              </p>
+
+              <p class="muted small"><strong>Contenus principaux :</strong></p>
+              <ul class="list">
+                <li><strong>Systèmes d’information :</strong> structure d’un SI, flux d’informations, sécurité et disponibilité.</li>
+                <li><strong>Base de données :</strong> modélisation (Merise, UML), conception relationnelle, requêtes SQL.</li>
+                <li><strong>Mathématiques appliquées :</strong> statistiques, probabilités, logique, aide à la décision.</li>
+                <li><strong>Gestion &amp; organisation :</strong> processus métiers, notions de comptabilité/finance.</li>
+              </ul>
+
+              <p class="muted small"><strong>Compétences développées :</strong></p>
+              <ul class="list">
+                <li>Traduire des besoins métiers en solutions informatiques.</li>
+                <li>Concevoir / améliorer un système d’information orienté gestion.</li>
+                <li>Exploiter des données pour soutenir la prise de décision.</li>
+                <li>Comprendre et optimiser des processus d’entreprise.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Formation bureautique -->
+          <div class="timeline__item" data-aos="fade-right">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content card">
+              <h4>Formation en Informatique Bureautique</h4>
+              <p class="muted small">Certification obtenue</p>
+
+              <p class="muted">
+                Formation centrée sur les outils bureautiques pour produire des documents, gérer des données
+                simples et préparer des présentations professionnelles.
+              </p>
+
+              <p class="muted small"><strong>Contenus principaux :</strong></p>
+              <ul class="list">
+                <li><strong>Prise en main :</strong> Windows, organisation des fichiers, sauvegardes.</li>
+                <li><strong>Word / Excel :</strong> mise en forme, tableaux, formules de base, graphiques.</li>
+                <li><strong>PowerPoint :</strong> diaporamas structurés, insertion d’images/tableaux.</li>
+              </ul>
+
+              <p class="muted small"><strong>Compétences développées :</strong></p>
+              <ul class="list">
+                <li>Créer des documents professionnels (CV, rapports, courriers).</li>
+                <li>Organiser et analyser des données simples dans Excel.</li>
+                <li>Présenter des informations de manière claire et visuelle.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Certification 1 -->
+          <div class="timeline__item" data-aos="fade-left">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content card">
+              <h4>Certification 1</h4>
+              <p class="muted small">Document officiel</p>
+
+              <p class="muted">
+                Certification attestant de mes compétences acquises au cours de ma formation.
+              </p>
+
+              <div class="certification-preview">
+                <a class="btn btn--outline btn--sm" href="assets/images/DEL.pdf" target="_blank" rel="noreferrer">
+                  Voir le certificat (PDF)
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certification 2 -->
+          <div class="timeline__item" data-aos="fade-right">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content card">
+              <h4>Certification 2</h4>
+              <p class="muted small">Document officiel • Aperçu ci-dessous</p>
+
+              <p class="muted">
+                Certification complémentaire renforçant mon profil académique et professionnel.
+              </p>
+
+              <div class="certification-preview">
+                <img
+                  src="assets/images/certificat2.png"
+                  alt="Certificat 2"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="card timeline-block" data-aos="fade-up">
+          <h3>Parcours professionnel</h3>
+
+          <div class="timeline">
+            <!-- Expérience 1 -->
+            <div class="timeline__item" data-aos="fade-right">
+              <div class="timeline__dot"></div>
+              <div class="timeline__content card" style="position: relative;">
+                <a
+                  href="https://rkbeauty.netlify.app"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="btn btn--outline btn--sm"
+                  style="position:absolute; top:16px; right:16px;"
+                >
+                  Voir le site
+                </a>
+
+                <h4>Stage Développeuse Full Stack – RKbeauty</h4>
+                <p class="muted small">Stage</p>
+                <ul class="project-card__bullets">
+                  <li>Conception des maquettes et du design du site</li>
+                  <li>Création et structuration de la base de données</li>
+                  <li>Développement des fonctionnalités front-end et back-end</li>
+                  <li>Connexion entre le front-end et le back-end</li>
+                  <li>Mise en production de l’application</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Expérience 2 -->
+            <div class="timeline__item" data-aos="fade-left">
+              <div class="timeline__dot"></div>
+              <div class="timeline__content card">
+                <h4>Expérience 2</h4>
+                <p class="muted small">Dates</p>
+                <p class="muted">Missions principales (à compléter).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="attestation">
+            <p class="muted"><strong>Attestation de stage</strong></p>
+            <a
+              class="btn btn--outline btn--sm"
+              href="assets/docs/attestation-stage.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Voir l’attestation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container two-cols">
+        <div data-aos="fade-right">
+          <h2>Contact</h2>
+          <p class="muted">
+            Tu veux me proposer un stage/alternance, un projet ou simplement échanger ?
+            Écris-moi ici.
+          </p>
+
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:tangouosty@gmail.com">Mon Email</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/queren-tangou-90268a22b" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="contact-link" href="https://github.com/tangouosty-art" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Netlify form -->
+        <form
+          class="card form"
+          id="contactForm"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          data-aos="fade-left"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+
+          <p class="sr-only">
+            <label>Ne pas remplir : <input name="bot-field" /></label>
+          </p>
+
+          <label>
+            <span>Nom</span>
+            <input type="text" name="name" placeholder="Ton nom" minlength="2" maxlength="60" required />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="ton@email.com" maxlength="120" required />
+          </label>
+
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" placeholder="Ton message..." minlength="10" maxlength="1500" required></textarea>
+          </label>
+
+          <!-- Optionnel (si tu actives reCAPTCHA Netlify) -->
+          <!-- <div data-netlify-recaptcha="true"></div> -->
+
+          <button class="btn btn--primary" type="submit">Envoyer</button>
+          <p class="muted small" id="formMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="muted small">© <span id="year"></span> Queren Tangou • Portfolio</p>
+      <a class="to-top" href="index.html#top" aria-label="Retour en haut">↑</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+</body>
+</html>

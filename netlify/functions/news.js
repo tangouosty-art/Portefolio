@@ -12,9 +12,9 @@ exports.handler = async (event) => {
   }
 
   const q = encodeURIComponent(
-    "AI cybersecurity OR \"artificial intelligence\" vulnerability OR \"threat detection\" OR \"intrusion detection\""
+    "cybersecurity AI OR \"artificial intelligence\" hacking OR malware OR \"vulnerability\" OR \"data breach\""
   );
-  const url = `https://newsapi.org/v2/everything?q=${q}&language=en&sortBy=publishedAt&pageSize=6&apiKey=${apiKey}`;
+  const url = `https://newsapi.org/v2/everything?q=${q}&language=en&sortBy=publishedAt&pageSize=6&apiKey=${apiKey}&domains=thehackernews.com,securityweek.com,wired.com,bleepingcomputer.com,krebsonsecurity.com`;
 
   const options = {
     headers: {

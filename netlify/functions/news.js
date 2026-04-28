@@ -12,9 +12,9 @@ exports.handler = async (event) => {
   }
 
   const q = encodeURIComponent(
-    "cybersecurity AI vulnerability detection OR \"intelligence artificielle securite\" OR \"faille web IA\""
+    "AI cybersecurity OR \"artificial intelligence\" vulnerability OR \"threat detection\" OR \"intrusion detection\""
   );
-  const url = `https://newsapi.org/v2/everything?q=${q}&language=fr&sortBy=publishedAt&pageSize=6&apiKey=${apiKey}`;
+  const url = `https://newsapi.org/v2/everything?q=${q}&language=en&sortBy=publishedAt&pageSize=6&apiKey=${apiKey}`;
 
   return new Promise((resolve) => {
     https.get(url, (res) => {

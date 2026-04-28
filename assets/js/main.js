@@ -226,7 +226,7 @@
   const IS_NETLIFY = window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1" && !window.location.protocol.startsWith("file");
   const API_URL = IS_NETLIFY
     ? "/.netlify/functions/news"
-    : `https://newsapi.org/v2/everything?q=${encodeURIComponent("cybersecurity AI vulnerability detection OR \"intelligence artificielle securite\"")}&language=fr&sortBy=publishedAt&pageSize=6&apiKey=${API_KEY}`;
+    : `https://newsapi.org/v2/everything?q=${encodeURIComponent("AI cybersecurity vulnerability threat detection")}&language=en&sortBy=publishedAt&pageSize=6&apiKey=${API_KEY}`;
 
   async function loadNewsApi() {
     if (!veilleApiGrid) return;

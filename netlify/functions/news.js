@@ -16,8 +16,15 @@ exports.handler = async (event) => {
   );
   const url = `https://newsapi.org/v2/everything?q=${q}&language=en&sortBy=publishedAt&pageSize=6&apiKey=${apiKey}`;
 
+  const options = {
+    headers: {
+      "User-Agent": "PortfolioQueren/1.0",
+      "X-Api-Key": apiKey
+    }
+  };
+
   return new Promise((resolve) => {
-    https.get(url, (res) => {
+    https.get(url, options, (res) => {
       let data = "";
       res.on("data", chunk => data += chunk);
       res.on("end", () => {

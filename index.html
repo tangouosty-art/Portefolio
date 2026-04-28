@@ -1,51 +1,45 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Portfolio de Queren Tangou — BTS SIO SLAM, Développement Web, Projets, Compétences." />
+  <meta name="description" content="Portfolio de Queren Tangou — BTS SIO SLAM, Développeuse Web Full Stack, Projets, Compétences et Veille technologique IA & Cybersécurité." />
   <title>Queren Tangou — Portfolio</title>
 
-  <link rel="icon" href="assets/img/favicon.ico" />
   <link rel="stylesheet" href="assets/css/style.css" />
-
-  <!-- AOS Animations -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <!-- Background glow -->
   <div class="bg-glow" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-bar" id="scrollBar"></div>
 
-  <!-- Header -->
+  <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
   <header class="header" id="top">
     <div class="container header__inner">
       <a class="logo" href="#top" aria-label="Retour en haut">
-        <span class="logo__dot"></span>
-        <span class="logo__text">Portfolio</span>
+        <span class="logo__dot"></span>QT
       </a>
 
       <nav class="nav" aria-label="Navigation principale">
-        <button class="nav__toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <button class="nav__toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
           <span></span><span></span><span></span>
         </button>
-
         <ul class="nav__list" id="navList">
           <li><a href="#about">À propos</a></li>
           <li><a href="#skills">Compétences</a></li>
+          <li><a href="#tools">Outils</a></li>
           <li><a href="#projects">Projets</a></li>
-          <li><a href="#timeline">Parcours</a></li>
           <li><a href="#experience">Expérience</a></li>
+          <li><a href="#academic">Parcours</a></li>
+          <li><a href="#veille">Veille</a></li>
           <li><a href="#contact">Contact</a></li>
           <li>
-            <button class="btn btn--ghost" id="themeToggle" type="button" aria-label="Changer le thème">
-              🌙
-            </button>
+            <button class="theme-btn" id="themeToggle" type="button" aria-label="Changer le thème">🌙</button>
           </li>
         </ul>
       </nav>
@@ -53,74 +47,84 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero section">
+    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+    <section class="hero section" id="hero">
       <div class="container hero__grid">
         <div class="hero__content" data-aos="fade-right">
           <p class="badge">BTS SIO • SLAM • Développement Web</p>
           <h1>
-            Bonjour, je suis <span class="accent">Queren Tangou</span><br />
-            Développeuse Web 
+            Bonjour, je suis<br />
+            <span class="accent">Queren Tangou</span><br />
+            <span class="hero__sub">Développeuse Web<br>Full Stack</span>
           </h1>
           <p class="lead">
-            Je conçois des applications web modernes (front &amp; back),
-            avec une attention particulière à la base de données, la logique métier et la sécurité (sessions/rôles).
+            Je conçois des applications web modernes, avec une attention particulière
+            à l'expérience utilisateur, la base de données, la logique métier et la sécurité.
           </p>
 
+          <div class="hero__techstack">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PHP</span><span>MySQL</span><span>Node.js</span>
+          </div>
+
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#projects">Voir mes projets</a>
-            <a class="btn btn--outline" href="assets/images/New_cv.pdf" target="_blank" rel="noreferrer">
-              Télécharger mon CV
-            </a>
+            <a class="btn btn--primary" href="#projects">Voir mes projets →</a>
+            <a class="btn btn--outline" href="assets/images/New_cv.pdf" target="_blank" rel="noreferrer">Télécharger CV</a>
           </div>
 
           <div class="hero__meta">
             <div class="meta-card">
-              <div class="meta-card__kpi">3+</div>
-              <div class="meta-card__text">Projets</div>
+              <div class="meta-card__kpi">6+</div>
+              <div class="meta-card__label">Projets</div>
             </div>
             <div class="meta-card">
-              <div class="meta-card__kpi">HTML • CSS • JS</div>
-              <div class="meta-card__text">Front-end</div>
+              <div class="meta-card__kpi">2+</div>
+              <div class="meta-card__label">Stages</div>
             </div>
             <div class="meta-card">
-              <div class="meta-card__kpi">PHP • MySQL</div>
-              <div class="meta-card__text">Back-end</div>
+              <div class="meta-card__kpi">10+</div>
+              <div class="meta-card__label">Techno</div>
             </div>
           </div>
         </div>
 
         <div class="hero__visual" data-aos="fade-left">
-          <div class="hero__photo">
-            <img src="assets/images/photocv.jpg" alt="Photo de Queren Tangou" loading="lazy" />
+          <div class="hero__photo-wrap">
+            <div class="hero__photo">
+              <img src="assets/images/photocv.jpg" alt="Photo de Queren Tangou" loading="lazy" />
+            </div>
+            <div class="hero__ring hero__ring--1"></div>
+            <div class="hero__ring hero__ring--2"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About -->
+    <!-- ═══════════════════════════ ABOUT ═══════════════════════════ -->
     <section class="section" id="about">
       <div class="container two-cols">
         <div data-aos="fade-up">
+          <div class="section-label">// 01 — Qui suis-je ?</div>
           <h2>À propos</h2>
           <p class="muted">
-            Étudiante en BTS SIO option SLAM, je me spécialise dans la conception d’applications web.
-            J’ai réalisé plusieurs projets concrets intégrant front-end et back-end, avec une attention à la
-            structuration, la base de données et l’expérience utilisateur.
+            Étudiante en BTS SIO option SLAM, je me spécialise dans la conception
+            d'applications web. J'ai réalisé plusieurs projets concrets intégrant
+            front-end et back-end, avec une attention à la structuration, à la base
+            de données et à l'expérience utilisateur.
           </p>
 
-          <!-- BTS SLAM explanation -->
           <div class="card about-bts" data-aos="flip-up">
-            <h3>C’est quoi le BTS SIO option SLAM ?</h3>
+            <h3>C'est quoi le BTS SIO option SLAM ?</h3>
             <p class="muted">
-              Le <strong>BTS SIO</strong> (Services Informatiques aux Organisations) forme aux métiers de l’informatique en entreprise.
-              L’option <strong>SLAM</strong> (Solutions Logicielles et Applications Métiers) est orientée <strong>développement</strong>.
+              Le <strong>BTS SIO</strong> (Services Informatiques aux Organisations)
+              forme aux métiers de l'informatique en entreprise. L'option
+              <strong>SLAM</strong> (Solutions Logicielles et Applications Métiers)
+              est orientée <strong>développement</strong>.
             </p>
             <ul class="list">
-              <li><strong>Concevoir</strong> : analyse du besoin, Merise (MCD/MLD), logique métier</li>
-              <li><strong>Développer</strong> : front (HTML/CSS/JS) + back (PHP/Node) + API</li>
-              <li><strong>Gérer les données</strong> : SQL, relations, contraintes, requêtes</li>
-              <li><strong>Sécuriser</strong> : sessions, rôles, validations, bonnes pratiques</li>
+              <li><strong>Concevoir</strong> : analyse du besoin, Merise, logique métier</li>
+              <li><strong>Développer</strong> : front-end, back-end et API</li>
+              <li><strong>Gérer les données</strong> : SQL, relations, contraintes</li>
+              <li><strong>Sécuriser</strong> : rôles, validations, bonnes pratiques</li>
             </ul>
           </div>
 
@@ -128,212 +132,441 @@
             <div class="chip">Merise (MCD/MLD)</div>
             <div class="chip">SQL / MySQL</div>
             <div class="chip">Git / GitHub</div>
-            <div class="chip">CRUD &amp; rôles</div>
+            <div class="chip">CRUD & rôles</div>
             <div class="chip">WAMP / phpMyAdmin</div>
-          </div>
-
-          <div class="about__cta">
-            <a class="btn btn--outline" href="#contact">Me contacter</a>
+            <div class="chip">Render / Netlify</div>
           </div>
         </div>
 
         <div class="card info-card" data-aos="zoom-in">
           <h3>Infos rapides</h3>
           <ul class="info-list">
-            <li><span>Localisation</span><strong>France (Les Ulis)</strong></li>
-            <li><span>Formation</span><strong>BTS SIO SLAM</strong></li>
-            <li><span>Technos</span><strong>HTML/CSS/JS • PHP • MySQL</strong></li>
-            <li><span>Objectif</span><strong>Dév Web • Admin BDD</strong></li>
+            <li><span>📍 Localisation</span><strong>France (Les Ulis)</strong></li>
+            <li><span>🎓 Formation</span><strong>BTS SIO SLAM</strong></li>
+            <li><span>💻 Technos</span><strong>HTML/CSS/JS • PHP • MySQL</strong></li>
+            <li><span>🎯 Objectif</span><strong>Dév Web • Admin BDD</strong></li>
+            <li><span>✅ Dispo</span><strong class="accent-text">Stage / Alternance</strong></li>
           </ul>
           <div class="divider"></div>
-
           <div class="links">
-            <a class="link" href="https://www.linkedin.com/in/queren-tangou-90268a22b" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="link" href="https://github.com/tangouosty-art" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="link" href="https://www.linkedin.com/in/queren-tangou-90268a22b" target="_blank" rel="noreferrer">LinkedIn →</a>
+            <a class="link" href="https://github.com/tangouosty-art" target="_blank" rel="noreferrer">GitHub →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills -->
+    <!-- ═══════════════════════════ SKILLS ═══════════════════════════ -->
     <section class="section" id="skills">
       <div class="container">
         <div class="section-head" data-aos="fade-up">
-          <h2>Compétences</h2>
-          <p class="muted">Technologies, outils et méthodes que j’utilise au quotidien.</p>
+          <div class="section-label">// 02 — Savoir-faire</div>
+          <h2>Compétences techniques</h2>
+          <p class="muted">Technologies maîtrisées et niveaux de compétences.</p>
         </div>
 
-        <div class="grid grid--3">
-          <article class="card skill-card" data-aos="zoom-in-up">
-            <h3>Développement</h3>
-            <ul class="list">
-              <li>HTML5 / CSS3 (responsive)</li>
-              <li>JavaScript (DOM, fetch, validations)</li>
-              <li>PHP (sessions, rôles, CRUD)</li>
-              <li>SQL (requêtes, jointures, agrégats)</li>
-            </ul>
-          </article>
+        <div class="skills-grid">
+          <!-- Front-End -->
+          <div class="card skill-group" data-aos="fade-up">
+            <h3 class="skill-group__title">Front-End</h3>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>HTML5</span><span class="skill-bar__pct">90%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="90"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>CSS3 / Responsive</span><span class="skill-bar__pct">85%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="85"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>JavaScript (DOM, ES6+)</span><span class="skill-bar__pct">72%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="72"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>React (bases)</span><span class="skill-bar__pct">50%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="50"></div></div>
+              </div>
+            </div>
+          </div>
 
-          <article class="card skill-card" data-aos="zoom-in-up" data-aos-delay="100">
-            <h3>Base de données</h3>
-            <ul class="list">
-              <li>MySQL / MariaDB</li>
-              <li>Modélisation Merise (MCD/MLD)</li>
-              <li>Contraintes, index, relations</li>
-              <li>Requêtes de reporting (stock, ventes)</li>
-            </ul>
-          </article>
+          <!-- Back-End & BDD -->
+          <div class="card skill-group" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="skill-group__title">Back-End & BDD</h3>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>PHP (CRUD, sessions)</span><span class="skill-bar__pct">75%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="75"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>SQL / MySQL</span><span class="skill-bar__pct">75%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="75"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>Node.js / Express</span><span class="skill-bar__pct">55%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="55"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>API REST</span><span class="skill-bar__pct">60%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="60"></div></div>
+              </div>
+            </div>
+          </div>
 
-          <article class="card skill-card" data-aos="zoom-in-up" data-aos-delay="200">
-            <h3>Outils &amp; Méthodo</h3>
-            <ul class="list">
-              <li>Git / GitHub (branches, commits)</li>
-              <li>WAMP / phpMyAdmin</li>
-              <li>Déploiement (Render / Netlify)</li>
-              <li>Organisation : pages, modules, MVC (bases)</li>
-            </ul>
-          </article>
-        </div>
+          <!-- Conception & Méthodes -->
+          <div class="card skill-group" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="skill-group__title">Conception & Méthodes</h3>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>Merise (MCD / MLD)</span><span class="skill-bar__pct">80%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="80"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>UML (cas d'usage, séquence)</span><span class="skill-bar__pct">65%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="65"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>Architecture MVC</span><span class="skill-bar__pct">68%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="68"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>Git / GitHub</span><span class="skill-bar__pct">72%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="72"></div></div>
+              </div>
+            </div>
+          </div>
 
-        <!-- Tools with hover mastery -->
-        <div class="card tools-card" data-aos="fade-up">
-          <h3>Outils &amp; logiciels</h3>
-          <p class="muted small">Survole une icône pour voir mon niveau de maîtrise.</p>
-
-          <div class="tools-grid" aria-label="Outils et niveaux de maîtrise">
-            <span class="tool" role="img" aria-label="Visual Studio Code" data-label="VS Code" data-level="Avancé (80%)">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" />
-            </span>
-
-            <span class="tool" role="img" aria-label="Git" data-label="Git" data-level="Intermédiaire (70%)">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
-            </span>
-
-            <span class="tool" role="img" aria-label="GitHub" data-label="GitHub" data-level="Intermédiaire (70%)">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@16.6.0/icons/github.svg" alt="GitHub" />
-            </span>
-
-            <span class="tool" role="img" aria-label="phpMyAdmin" data-label="phpMyAdmin" data-level="Avancé (80%)">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@16.6.0/icons/phpmyadmin.svg" alt="phpMyAdmin" />
-            </span>
-
-            <span class="tool" role="img" aria-label="WAMP" data-label="WAMP" data-level="Intermédiaire (65%)">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" alt="Apache (WAMP)" />
-            </span>
-
-            <span class="tool" role="img" aria-label="MySQL Workbench" data-label="MySQL Workbench" data-level="Intermédiaire (60%)">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
-            </span>
-
-            <span class="tool" role="img" aria-label="Canva" data-label="Canva" data-level="Avancé (75%)">
-              <img src="assets/images/canva.svg" alt="Canva" />
-            </span>
+          <!-- Sécurité & Autres -->
+          <div class="card skill-group" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="skill-group__title">Sécurité & Autres</h3>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>Sécurité web (sessions, rôles)</span><span class="skill-bar__pct">70%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="70"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>Déploiement Netlify / Render</span><span class="skill-bar__pct">65%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="65"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>IA & Outils (Copilot, ChatGPT)</span><span class="skill-bar__pct">75%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="75"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar__header"><span>Design (Canva, Figma)</span><span class="skill-bar__pct">70%</span></div>
+                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="70"></div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- ═══════════════════════════ TOOLS ═══════════════════════════ -->
+    <section class="section" id="tools">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <div class="section-label">// 03 — Environnement de travail</div>
+          <h2>Outils & Technologies</h2>
+          <p class="muted">Les outils que j'utilise au quotidien dans mes projets.</p>
+        </div>
+
+        <div class="tools-sections">
+          <!-- Langages -->
+          <div class="tools-section" data-aos="fade-up">
+            <h4 class="tools-section__title"><span class="tools-section__num">01</span> Langages</h4>
+            <div class="tools-grid">
+              <span class="tool" data-label="HTML5" data-level="Avancé (90%)"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5" /></span>
+              <span class="tool" data-label="CSS3" data-level="Avancé (85%)"><img src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS3" /></span>
+              <span class="tool" data-label="JavaScript" data-level="Intermédiaire (72%)"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript" /></span>
+              <span class="tool" data-label="PHP" data-level="Intermédiaire (75%)"><img src="https://cdn.simpleicons.org/php/777BB3" alt="PHP" /></span>
+              <span class="tool" data-label="SQL / MySQL" data-level="Intermédiaire (75%)"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" /></span>
+              <span class="tool" data-label="Node.js" data-level="Débutant (55%)"><img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js" /></span>
+            </div>
+          </div>
+
+          <!-- Frameworks -->
+          <div class="tools-section" data-aos="fade-up" data-aos-delay="80">
+            <h4 class="tools-section__title"><span class="tools-section__num">02</span> Frameworks & Librairies</h4>
+            <div class="tools-grid">
+              <span class="tool" data-label="React" data-level="Débutant (50%)"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" /></span>
+              <span class="tool" data-label="Bootstrap" data-level="Intermédiaire (70%)"><img src="https://cdn.simpleicons.org/bootstrap/7952B3" alt="Bootstrap" /></span>
+              <span class="tool" data-label="Express.js" data-level="Débutant (50%)"><img src="https://cdn.simpleicons.org/express/ffffff" alt="Express" /></span>
+            </div>
+          </div>
+
+          <!-- Outils de dev -->
+          <div class="tools-section" data-aos="fade-up" data-aos-delay="160">
+            <h4 class="tools-section__title"><span class="tools-section__num">03</span> Outils de développement</h4>
+            <div class="tools-grid">
+              <span class="tool" data-label="VS Code" data-level="Avancé (82%)"><img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" alt="VS Code" /></span>
+              <span class="tool" data-label="GitHub" data-level="Intermédiaire (72%)"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" /></span>
+              <span class="tool" data-label="Git" data-level="Intermédiaire (70%)"><img src="https://cdn.simpleicons.org/git/F05032" alt="Git" /></span>
+              <span class="tool" data-label="phpMyAdmin" data-level="Avancé (80%)"><img src="https://cdn.simpleicons.org/phpmyadmin/6A77B1" alt="phpMyAdmin" /></span>
+              <span class="tool" data-label="Postman" data-level="Intermédiaire (60%)"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="Postman" /></span>
+            </div>
+          </div>
+
+          <!-- Système & Design -->
+          <div class="tools-section" data-aos="fade-up" data-aos-delay="240">
+            <h4 class="tools-section__title"><span class="tools-section__num">04</span> Système, Réseau & Design</h4>
+            <div class="tools-grid">
+              <span class="tool" data-label="WAMP / XAMPP" data-level="Avancé (80%)"><img src="https://cdn.simpleicons.org/xampp/FB7A24" alt="XAMPP" /></span>
+              <span class="tool" data-label="Apache" data-level="Intermédiaire (60%)"><img src="https://cdn.simpleicons.org/apache/D22128" alt="Apache" /></span>
+              <span class="tool" data-label="Canva" data-level="Avancé (75%)"><img src="https://cdn.simpleicons.org/canva/00C4CC" alt="Canva" /></span>
+              <span class="tool" data-label="Figma" data-level="Débutant (45%)"><img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma" /></span>
+              <span class="tool" data-label="Netlify" data-level="Intermédiaire (65%)"><img src="https://cdn.simpleicons.org/netlify/00C7B7" alt="Netlify" /></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ PROJECTS ═══════════════════════════ -->
     <section class="section" id="projects">
       <div class="container">
         <div class="section-head" data-aos="fade-up">
-          <h2>Projets</h2>
-          <p class="muted">Une sélection de projets représentatifs (conception, dev, tests, déploiement).</p>
+          <div class="section-label">// 04 — Réalisations</div>
+          <h2>Mes projets</h2>
+          <p class="muted">Projets académiques et personnels — de la conception au déploiement.</p>
         </div>
 
-        <!-- Filters -->
-        <div class="project-filters card" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-filters card" data-aos="fade-up">
           <div class="project-filters__row">
             <label class="filter">
               <span>Rechercher</span>
-              <input id="projectSearch" type="search" placeholder="Ex: stock, réservation, php, mysql..." autocomplete="off" />
+              <input id="projectSearch" type="search" placeholder="Ex: stock, réservation, php..." autocomplete="off" />
             </label>
-
             <label class="filter">
-              <span>Filtrer</span>
+              <span>Filtrer par techno</span>
               <select id="projectTag">
                 <option value="all">Tous</option>
                 <option value="php">PHP</option>
                 <option value="mysql">MySQL</option>
                 <option value="js">JavaScript</option>
                 <option value="node">Node</option>
+                <option value="react">React</option>
+                <option value="css">CSS</option>
                 <option value="paiement">Paiement</option>
                 <option value="design">Design</option>
                 <option value="securite">Sécurité</option>
               </select>
             </label>
           </div>
-
           <p class="muted small" id="projectCount" aria-live="polite"></p>
         </div>
 
-        <div class="grid grid--3">
+        <!-- Académiques -->
+        <div class="projects-group-header" data-aos="fade-up">
+          <span class="projects-group-icon">🎓</span>
+          <div>
+            <h3>Projets académiques</h3>
+            <p class="muted small">Réalisés dans le cadre de ma formation BTS SIO SLAM.</p>
+          </div>
+        </div>
+
+        <div class="grid grid--3 project-group" id="groupAcademic">
           <!-- Stock-App -->
-          <article class="card project-card" data-title="Stock-App" data-tags="php mysql securite crud" data-aos="fade-up">
+          <article class="card project-card" data-title="Stock-App" data-tags="php mysql securite crud academic" data-aos="fade-up">
             <div class="project-card__image">
-              <img src="assets/images/mockup1.png" alt="Application Stock-App - gestion de stock" loading="lazy" />
+              <img src="assets/images/mockup1.png" alt="Stock-App" loading="lazy" />
+              <div class="project-card__num">A-01</div>
+              <div class="project-card__badge">Académique</div>
             </div>
-            <div class="project-card__top">
+            <div class="project-card__body">
               <p class="tag">PHP • MySQL</p>
               <h3>Stock-App</h3>
               <p class="muted">
                 Application de gestion de stock (admin/vendeur) : produits, fournisseurs,
-                mouvements (entrée/sortie) et calcul du stock.
+                mouvements entrée/sortie, calcul du stock en temps réel.
               </p>
+              <ul class="project-card__bullets">
+                <li>Authentification + gestion des rôles</li>
+                <li>CRUD complet avec validations</li>
+                <li>Reporting stock en base de données</li>
+              </ul>
+              <div class="project-card__tags-row">
+                <span class="mini-tag">PHP</span><span class="mini-tag">MySQL</span><span class="mini-tag">Sécurité</span>
+              </div>
             </div>
-            <ul class="project-card__bullets">
-              <li>Authentification + rôles</li>
-              <li>CRUD + validations</li>
-              <li>Reporting stock</li>
-            </ul>
             <div class="project-card__actions">
-              <a class="btn btn--outline btn--sm" href="#" target="_blank" rel="noreferrer">Démo</a>
-              <a class="btn btn--ghost btn--sm" href="#" target="_blank" rel="noreferrer">Code</a>
+              <a class="btn btn--ghost btn--sm" href="#" target="_blank" rel="noreferrer">Démo</a>
             </div>
           </article>
 
-          <!-- RKbeauty -->
-          <article class="card project-card" data-title="RKbeauty" data-tags="js node paiement securite reservation" data-aos="fade-up" data-aos-delay="100">
+          <!-- Mon Budget+ -->
+          <article class="card project-card" data-title="Mon Budget+" data-tags="react node mysql securite academic" data-aos="fade-up" data-aos-delay="100">
             <div class="project-card__image">
-              <img src="assets/images/mockup.png" alt="Site vitrine RKbeauty" loading="lazy" />
+              <img src="assets/images/mockup1.png" alt="Mon Budget+" loading="lazy" />
+              <div class="project-card__num">A-02</div>
+              <div class="project-card__badge">Académique</div>
             </div>
-            <div class="project-card__top">
-              <p class="tag">JS • HTML/CSS</p>
+            <div class="project-card__body">
+              <p class="tag">React • Node • MySQL</p>
+              <h3>Mon Budget+</h3>
+              <p class="muted">
+                Application web de gestion de budget étudiant avec authentification,
+                tableau de bord, revenus, dépenses et gestion des tâches.
+              </p>
+              <ul class="project-card__bullets">
+                <li>Gestion budgétaire complète</li>
+                <li>Organisation des tâches</li>
+                <li>Stack full stack connectée</li>
+              </ul>
+              <div class="project-card__tags-row">
+                <span class="mini-tag">React</span><span class="mini-tag">Node</span><span class="mini-tag">MySQL</span>
+              </div>
+            </div>
+            <div class="project-card__actions">
+              <a class="btn btn--outline btn--sm" href="https://budjet-etudiant.netlify.app" target="_blank" rel="noreferrer">Démo</a>
+            </div>
+          </article>
+
+          <!-- Novera -->
+          <article class="card project-card" data-title="Novera" data-tags="php mysql js academic reservation" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card__image">
+              <img src="assets/images/mockup1.png" alt="Novera" loading="lazy" />
+              <div class="project-card__num">A-03</div>
+              <div class="project-card__badge">Académique</div>
+            </div>
+            <div class="project-card__body">
+              <p class="tag">PHP • MySQL • JavaScript</p>
+              <h3>Novera</h3>
+              <p class="muted">
+                Application de réservation de chambres d'hôtel : gestion clients,
+                réservations et base de données relationnelle.
+              </p>
+              <ul class="project-card__bullets">
+                <li>Gestion des réservations</li>
+                <li>Manipulation de données clients</li>
+                <li>Formulaires et logique métier</li>
+              </ul>
+              <div class="project-card__tags-row">
+                <span class="mini-tag">PHP</span><span class="mini-tag">MySQL</span><span class="mini-tag">JS</span>
+              </div>
+            </div>
+            <div class="project-card__actions">
+              <a class="btn btn--ghost btn--sm" href="#" target="_blank" rel="noreferrer">Démo</a>
+            </div>
+          </article>
+
+          <!-- Flexbox Froggy -->
+          <article class="card project-card project-card--froggy" data-title="Flexbox Froggy" data-tags="css flexbox design academic" data-aos="fade-up" data-aos-delay="300">
+            <div class="project-card__image project-card__image--froggy">
+              <div class="froggy-preview">
+                <span class="froggy-emoji">🐸</span>
+                <div class="froggy-label">Exercice CSS</div>
+              </div>
+              <div class="project-card__num">A-04</div>
+              <div class="project-card__badge">Académique</div>
+            </div>
+            <div class="project-card__body">
+              <p class="tag">CSS3 • Flexbox • Layout</p>
+              <h3>Flexbox Froggy — Maîtrise CSS</h3>
+              <p class="muted">
+                Exercice de maîtrise avancée du CSS Flexbox réalisé dans le cadre des cours.
+                Résolution de tous les niveaux du jeu pédagogique Flexbox Froggy,
+                démontrant la maîtrise des propriétés flex.
+              </p>
+              <ul class="project-card__bullets">
+                <li>Maîtrise de justify-content, align-items, flex-wrap</li>
+                <li>Résolution des 24 niveaux</li>
+                <li>Compréhension du layout Flexbox</li>
+              </ul>
+              <div class="project-card__tags-row">
+                <span class="mini-tag">CSS3</span><span class="mini-tag">Flexbox</span>
+              </div>
+            </div>
+            <div class="project-card__actions">
+              <a class="btn btn--outline btn--sm" href="https://flexboxfroggy.com/#fr" target="_blank" rel="noreferrer">Voir les captures →</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Personnels -->
+        <div class="projects-group-header projects-subtitle" data-aos="fade-up">
+          <span class="projects-group-icon">💼</span>
+          <div>
+            <h3>Projets personnels & professionnels</h3>
+            <p class="muted small">Projets personnels ou réalisés en stage.</p>
+          </div>
+        </div>
+
+        <div class="grid grid--3 project-group" id="groupPersonal">
+          <article class="card project-card" data-title="RKbeauty" data-tags="js node paiement securite reservation personal" data-aos="fade-up">
+            <div class="project-card__image">
+              <img src="assets/images/mockup.png" alt="RKbeauty" loading="lazy" />
+              <div class="project-card__num">P-01</div>
+              <div class="project-card__badge project-card__badge--pro">Stage</div>
+            </div>
+            <div class="project-card__body">
+              <p class="tag">JS • Node • Paiement</p>
               <h3>RKbeauty</h3>
               <p class="muted">
-                Plateforme de réservation de formations en maquillage,
-                gestion des créneaux et pages client.
+                Plateforme de réservation de formations en maquillage avec gestion
+                des créneaux, pages client et déploiement web.
               </p>
+              <ul class="project-card__bullets">
+                <li>Réservation en ligne</li>
+                <li>Déploiement Netlify / Render</li>
+                <li>Architecture front / back complète</li>
+              </ul>
+              <div class="project-card__tags-row">
+                <span class="mini-tag">Node</span><span class="mini-tag">JS</span><span class="mini-tag">Paiement</span>
+              </div>
             </div>
-            <ul class="project-card__bullets">
-              <li>Réservation</li>
-              <li>Site vitrine</li>
-              <li>Déploiement</li>
-            </ul>
             <div class="project-card__actions">
-              <a class="btn btn--outline btn--sm" href="#" target="_blank" rel="noreferrer">Démo</a>
-              <a class="btn btn--ghost btn--sm" href="#" target="_blank" rel="noreferrer">Code</a>
+              <a class="btn btn--outline btn--sm" href="https://www.queren.formationsio.fr/" target="_blank" rel="noreferrer">Voir en ligne →</a>
             </div>
           </article>
 
-          <!-- Portfolio -->
-          <article class="card project-card" data-title="Portfolio" data-tags="front design js" data-aos="fade-up" data-aos-delay="200">
+          <article class="card project-card" data-title="Business privée" data-tags="mysql securite stage personal" data-aos="fade-up" data-aos-delay="100">
             <div class="project-card__image">
-              <img src="assets/images/cat.png" alt="Portfolio de Queren Tangou" loading="lazy" />
+              <img src="assets/images/mockup.png" alt="Business privée" loading="lazy" />
+              <div class="project-card__num">P-02</div>
+              <div class="project-card__badge project-card__badge--pro">Stage</div>
             </div>
-            <div class="project-card__top">
+            <div class="project-card__body">
+              <p class="tag">Sécurité • Base de données</p>
+              <h3>Business privée</h3>
+              <p class="muted">
+                Projet en entreprise privée : sécurisation des accès et
+                gestion de la base de données en contexte professionnel réel.
+              </p>
+              <ul class="project-card__bullets">
+                <li>Sécurisation des données</li>
+                <li>Intervention base de données</li>
+              </ul>
+              <div class="project-card__tags-row">
+                <span class="mini-tag">MySQL</span><span class="mini-tag">Sécurité</span>
+              </div>
+            </div>
+            <div class="project-card__actions">
+              <span class="btn btn--ghost btn--sm">Confidentiel</span>
+            </div>
+          </article>
+
+          <article class="card project-card" data-title="Portfolio" data-tags="front design js personal css" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card__image">
+              <img src="assets/images/cat.png" alt="Portfolio" loading="lazy" />
+              <div class="project-card__num">P-03</div>
+              <div class="project-card__badge">Personnel</div>
+            </div>
+            <div class="project-card__body">
               <p class="tag">Front • Design</p>
               <h3>Portfolio</h3>
               <p class="muted">
-                Portfolio responsive inspiré des portfolios modernes : sections, animations légères,
-                accessibilité et performance.
+                Site portfolio personnel présentant mon parcours, mes compétences,
+                mes projets et ma veille technologique.
               </p>
+              <ul class="project-card__bullets">
+                <li>Responsive design</li>
+                <li>Mode clair / sombre</li>
+                <li>Veille API temps réel</li>
+              </ul>
+              <div class="project-card__tags-row">
+                <span class="mini-tag">HTML</span><span class="mini-tag">CSS</span><span class="mini-tag">JS</span>
+              </div>
             </div>
-            <ul class="project-card__bullets">
-              <li>Design dark + accent</li>
-              <li>Menu mobile</li>
-              <li>Mode clair/sombre</li>
-            </ul>
             <div class="project-card__actions">
               <a class="btn btn--outline btn--sm" href="#top">Voir</a>
               <a class="btn btn--ghost btn--sm" href="https://github.com/tangouosty-art/Portefolio" target="_blank" rel="noreferrer">Code</a>
@@ -343,133 +576,72 @@
       </div>
     </section>
 
-    <!-- Parcours académiques & certifications -->
-    <section class="section" id="timeline">
+    <!-- ═══════════════════════════ EXPERIENCE ═══════════════════════════ -->
+    <section class="section" id="experience">
       <div class="container">
         <div class="section-head" data-aos="fade-up">
-          <h2>Parcours académiques &amp; certifications</h2>
-          <p class="muted">
-            Diplômes, formations et certifications qui construisent mon profil.
-          </p>
+          <div class="section-label">// 05 — Terrain</div>
+          <h2>Expériences professionnelles</h2>
         </div>
 
         <div class="timeline">
-          <!-- BTS SIO SLAM -->
           <div class="timeline__item" data-aos="fade-right">
             <div class="timeline__dot"></div>
             <div class="timeline__content card">
-              <h4>BTS SIO — Option SLAM</h4>
-              <p class="muted small">Statut : En cours • 2024 — 2026 | Scholia</p>
-
+              <div class="timeline__with-img">
+                <div class="timeline__img-wrap">
+                  <img src="assets/images/mockup.png" alt="RKbeauty" loading="lazy" />
+                </div>
+                <div class="timeline__text">
+                  <div class="timeline__badge">Stage</div>
+                  <h4>Développeuse Full Stack — RKbeauty</h4>
+                  <p class="muted small">2025 · Stage en entreprise</p>
+                </div>
+              </div>
               <p class="muted">
-                Formation orientée développement d’applications métiers :
-                analyse du besoin, conception, développement et mise en production.
+                Développement et mise en production d'une plateforme de réservation
+                de formations avec gestion de la base de données et des pages client.
               </p>
-
-              <p class="muted small"><strong>Compétences développées :</strong></p>
-              <ul class="list">
-                <li>Développer une application complète (front-end / back-end).</li>
-                <li>Concevoir et administrer une base de données relationnelle.</li>
-                <li>Analyser un besoin client et proposer une solution logicielle.</li>
-                <li>Travailler en équipe projet et documenter (technique / fonctionnel).</li>
+              <ul class="project-card__bullets">
+                <li>Conception des maquettes et du design</li>
+                <li>Structuration de la base de données</li>
+                <li>Développement front-end et back-end</li>
+                <li>Connexion interface ↔ serveur</li>
+                <li>Mise en ligne de l'application</li>
               </ul>
-            </div>
-          </div>
-
-          <!-- BTS Informatique de Gestion MIAGE -->
-          <div class="timeline__item" data-aos="fade-left">
-            <div class="timeline__dot"></div>
-            <div class="timeline__content card">
-              <h4>BTS Informatique de Gestion — Option MIAGE</h4>
-              <p class="muted small">Diplôme obtenu • 2024</p>
-
-              <p class="muted">
-                L’option MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises)
-                fait le lien entre les besoins métiers et les solutions informatiques.
-              </p>
-
-              <p class="muted small"><strong>Contenus principaux :</strong></p>
-              <ul class="list">
-                <li><strong>Systèmes d’information :</strong> structure d’un SI, flux d’informations, sécurité et disponibilité.</li>
-                <li><strong>Base de données :</strong> modélisation (Merise, UML), conception relationnelle, requêtes SQL.</li>
-                <li><strong>Mathématiques appliquées :</strong> statistiques, probabilités, logique, aide à la décision.</li>
-                <li><strong>Gestion &amp; organisation :</strong> processus métiers, notions de comptabilité/finance.</li>
-              </ul>
-
-              <p class="muted small"><strong>Compétences développées :</strong></p>
-              <ul class="list">
-                <li>Traduire des besoins métiers en solutions informatiques.</li>
-                <li>Concevoir / améliorer un système d’information orienté gestion.</li>
-                <li>Exploiter des données pour soutenir la prise de décision.</li>
-                <li>Comprendre et optimiser des processus d’entreprise.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Formation bureautique -->
-          <div class="timeline__item" data-aos="fade-right">
-            <div class="timeline__dot"></div>
-            <div class="timeline__content card">
-              <h4>Formation en Informatique Bureautique</h4>
-              <p class="muted small">Certification obtenue</p>
-
-              <p class="muted">
-                Formation centrée sur les outils bureautiques pour produire des documents, gérer des données
-                simples et préparer des présentations professionnelles.
-              </p>
-
-              <p class="muted small"><strong>Contenus principaux :</strong></p>
-              <ul class="list">
-                <li><strong>Prise en main :</strong> Windows, organisation des fichiers, sauvegardes.</li>
-                <li><strong>Word / Excel :</strong> mise en forme, tableaux, formules de base, graphiques.</li>
-                <li><strong>PowerPoint :</strong> diaporamas structurés, insertion d’images/tableaux.</li>
-              </ul>
-
-              <p class="muted small"><strong>Compétences développées :</strong></p>
-              <ul class="list">
-                <li>Créer des documents professionnels (CV, rapports, courriers).</li>
-                <li>Organiser et analyser des données simples dans Excel.</li>
-                <li>Présenter des informations de manière claire et visuelle.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Certification 1 -->
-          <div class="timeline__item" data-aos="fade-left">
-            <div class="timeline__dot"></div>
-            <div class="timeline__content card">
-              <h4>Certification 1</h4>
-              <p class="muted small">Document officiel</p>
-
-              <p class="muted">
-                Certification attestant de mes compétences acquises au cours de ma formation.
-              </p>
-
-              <div class="certification-preview">
-                <a class="btn btn--outline btn--sm" href="assets/images/DEL.pdf" target="_blank" rel="noreferrer">
-                  Voir le certificat (PDF)
-                </a>
+              <div class="timeline__techs">
+                <span class="mini-tag">HTML/CSS</span><span class="mini-tag">JavaScript</span><span class="mini-tag">Node.js</span><span class="mini-tag">MySQL</span>
+              </div>
+              <div class="project-card__actions">
+                <a class="btn btn--outline btn--sm" href="https://rkbeauty.netlify.app" target="_blank" rel="noreferrer">Voir le site</a>
               </div>
             </div>
           </div>
 
-          <!-- Certification 2 -->
-          <div class="timeline__item" data-aos="fade-right">
+          <div class="timeline__item" data-aos="fade-left">
             <div class="timeline__dot"></div>
             <div class="timeline__content card">
-              <h4>Certification 2</h4>
-              <p class="muted small">Document officiel • Aperçu ci-dessous</p>
-
+              <div class="timeline__with-img">
+                <div class="timeline__img-wrap">
+                  <img src="assets/images/mockup1.png" alt="Business privée" loading="lazy" />
+                </div>
+                <div class="timeline__text">
+                  <div class="timeline__badge">Stage</div>
+                  <h4>Mission en entreprise privée</h4>
+                  <p class="muted small">Stage / expérience professionnelle</p>
+                </div>
+              </div>
               <p class="muted">
-                Certification complémentaire renforçant mon profil académique et professionnel.
+                Participation à un projet en entreprise privée, tâches liées
+                à la sécurité et à la base de données.
               </p>
-
-              <div class="certification-preview">
-                <img
-                  src="assets/images/certificat2.png"
-                  alt="Certificat 2"
-                  loading="lazy"
-                />
+              <ul class="project-card__bullets">
+                <li>Sécurisation de l'application</li>
+                <li>Intervention sur la base de données</li>
+                <li>Cadre professionnel réel</li>
+              </ul>
+              <div class="timeline__techs">
+                <span class="mini-tag">MySQL</span><span class="mini-tag">Sécurité</span>
               </div>
             </div>
           </div>
@@ -477,134 +649,404 @@
       </div>
     </section>
 
-    <!-- Professional Experience -->
-    <section class="section" id="experience">
+    <!-- ═══════════════════════════ ACADEMIC ═══════════════════════════ -->
+    <section class="section" id="academic">
       <div class="container">
-        <div class="card timeline-block" data-aos="fade-up">
-          <h3>Parcours professionnel</h3>
+        <div class="section-head" data-aos="fade-up">
+          <div class="section-label">// 06 — Formation</div>
+          <h2>Parcours BTS SIO — SLAM</h2>
+          <p class="muted">
+            Le BTS SIO option <strong>SLAM</strong> forme des développeurs capables de concevoir,
+            développer, tester et maintenir des applications informatiques professionnelles.
+          </p>
+        </div>
 
-          <div class="timeline">
-            <!-- Expérience 1 -->
-            <div class="timeline__item" data-aos="fade-right">
-              <div class="timeline__dot"></div>
-              <div class="timeline__content card" style="position: relative;">
-                <a
-                  href="https://rkbeauty.netlify.app"
-                  target="_blank"
-                  rel="noreferrer"
-                  class="btn btn--outline btn--sm"
-                  style="position:absolute; top:16px; right:16px;"
-                >
-                  Voir le site
-                </a>
+        <div class="academic-grid">
+          <div class="card academic-card" data-aos="fade-up">
+            <div class="academic-card__year">1ère année</div>
+            <h4>Fondamentaux</h4>
+            <ul class="academic-list">
+              <li>HTML5 / CSS3 — Intégration web</li>
+              <li>Algorithmique et logique de programmation</li>
+              <li>JavaScript — Bases des interactions</li>
+              <li>Programmation Orientée Objet</li>
+              <li>Modélisation Merise / UML</li>
+              <li>Systèmes et réseaux</li>
+              <li>Cybersécurité et protection des données</li>
+            </ul>
+          </div>
+          <div class="card academic-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="academic-card__year">2ème année</div>
+            <h4>Applications pro</h4>
+            <ul class="academic-list">
+              <li>PHP / JavaScript avancé</li>
+              <li>Bases de données relationnelles (SQL)</li>
+              <li>Développement d'applications complètes</li>
+              <li>Sécurité des applications web</li>
+              <li>Gestion de projets informatiques</li>
+              <li>Tests, maintenance et optimisation</li>
+              <li>Architecture MVC</li>
+            </ul>
+          </div>
+          <div class="card academic-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="academic-card__year">Pro</div>
+            <h4>Mise en pratique</h4>
+            <ul class="academic-list">
+              <li>Stage en entreprise (développement web)</li>
+              <li>Projets concrets (apps, sites, outils)</li>
+              <li>Travail en équipe — Méthode Agile</li>
+              <li>Utilisation de l'IA comme outil de dev</li>
+              <li>Déploiement et mise en production</li>
+              <li>Préparation à l'insertion professionnelle</li>
+            </ul>
+          </div>
+        </div>
 
-                <h4>Stage Développeuse Full Stack – RKbeauty</h4>
-                <p class="muted small">Stage</p>
-                <ul class="project-card__bullets">
-                  <li>Conception des maquettes et du design du site</li>
-                  <li>Création et structuration de la base de données</li>
-                  <li>Développement des fonctionnalités front-end et back-end</li>
-                  <li>Connexion entre le front-end et le back-end</li>
-                  <li>Mise en production de l’application</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Expérience 2 -->
-            <div class="timeline__item" data-aos="fade-left">
-              <div class="timeline__dot"></div>
-              <div class="timeline__content card">
-                <h4>Expérience 2</h4>
-                <p class="muted small">Dates</p>
-                <p class="muted">Missions principales (à compléter).</p>
-              </div>
+        <div class="timeline" style="margin-top:40px">
+          <div class="timeline__item" data-aos="fade-right">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content card">
+              <div class="timeline__badge timeline__badge--current">En cours</div>
+              <h4>BTS SIO — Option SLAM</h4>
+              <p class="muted small">2024 — 2026 | Scholia</p>
             </div>
           </div>
-
-          <div class="divider"></div>
-
-          <div class="attestation">
-            <p class="muted"><strong>Attestation de stage</strong></p>
-            <a
-              class="btn btn--outline btn--sm"
-              href="assets/docs/attestation-stage.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Voir l’attestation
-            </a>
+          <div class="timeline__item" data-aos="fade-left">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content card">
+              <div class="timeline__badge">Diplôme obtenu • 2024</div>
+              <h4>BTS Informatique de Gestion — Option MIAGE</h4>
+              <p class="muted">
+                Formation centrée sur les méthodes informatiques appliquées à la gestion,
+                la compréhension des systèmes d'information et l'exploitation des données.
+              </p>
+              <ul class="list" style="margin-top:8px">
+                <li>Systèmes d'information</li>
+                <li>Modélisation des données</li>
+                <li>Mathématiques appliquées et logique</li>
+                <li>Gestion et organisation d'entreprise</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline__item" data-aos="fade-right">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content card">
+              <div class="timeline__badge">Certification obtenue</div>
+              <h4>Formation en informatique bureautique</h4>
+              <p class="muted">
+                Formation dédiée aux outils bureautiques, à la production de documents
+                et à l'organisation des données simples.
+              </p>
+              <ul class="list" style="margin-top:8px">
+                <li>Word / Excel / PowerPoint</li>
+                <li>Organisation des fichiers</li>
+                <li>Présentations professionnelles</li>
+              </ul>
+              <a class="btn btn--ghost btn--sm" href="assets/images/DEL.pdf" target="_blank" rel="noreferrer" style="margin-top:12px;display:inline-flex">Voir le certificat</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="container two-cols">
-        <div data-aos="fade-right">
-          <h2>Contact</h2>
+    <!-- ═══════════════════════════ VEILLE ═══════════════════════════ -->
+    <section class="section" id="veille">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <div class="section-label">// 07 — Curiosité & Actualité</div>
+          <h2>Veille technologique</h2>
           <p class="muted">
-            Tu veux me proposer un stage/alternance, un projet ou simplement échanger ?
-            Écris-moi ici.
+            <strong>IA & Cybersécurité — Détection des failles</strong> : 
+            comment l'intelligence artificielle révolutionne la sécurité informatique, 
+            la détection d'intrusions et la protection des systèmes.
+            Articles récents mis à jour automatiquement via API.
           </p>
+        </div>
 
-          <div class="contact-links">
-            <a class="contact-link" href="mailto:tangouosty@gmail.com">Mon Email</a>
-            <a class="contact-link" href="https://www.linkedin.com/in/queren-tangou-90268a22b" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="contact-link" href="https://github.com/tangouosty-art" target="_blank" rel="noreferrer">GitHub</a>
+        <!-- Bloc méthodo -->
+        <div class="card veille-methodo" data-aos="fade-up">
+          <div class="veille-methodo__grid">
+            <div class="veille-methodo__block">
+              <div class="veille-methodo__icon">🎯</div>
+              <h4>Sujet</h4>
+              <p class="muted small">IA & Cybersécurité : détection de failles, anomalies réseau, protection des systèmes.</p>
+            </div>
+            <div class="veille-methodo__block">
+              <div class="veille-methodo__icon">🔍</div>
+              <h4>Sources</h4>
+              <p class="muted small">CERT-FR, OWASP, The Hacker News, SecurityWeek, Krebs on Security, ANSSI.</p>
+            </div>
+            <div class="veille-methodo__block">
+              <div class="veille-methodo__icon">⚙️</div>
+              <h4>Outils</h4>
+              <p class="muted small">Feedly, Google Alerts, NewsAPI (temps réel), GitHub Trending, newsletters sécurité.</p>
+            </div>
+            <div class="veille-methodo__block">
+              <div class="veille-methodo__icon">📅</div>
+              <h4>Fréquence</h4>
+              <p class="muted small">Veille hebdomadaire avec flux automatique d'articles récents.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Netlify form -->
-        <form
-          class="card form"
-          id="contactForm"
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          data-aos="fade-left"
-        >
-          <input type="hidden" name="form-name" value="contact" />
+        <!-- Filtres -->
+        <div class="veille-filters" data-aos="fade-up">
+          <button class="veille-filter-btn active" data-filter="all">Tous</button>
+          <button class="veille-filter-btn" data-filter="detection">Détection de failles</button>
+          <button class="veille-filter-btn" data-filter="ia-secu">IA & Sécurité</button>
+          <button class="veille-filter-btn" data-filter="intrusion">Détection d'intrusion</button>
+          <button class="veille-filter-btn" data-filter="donnees">Protection des données</button>
+        </div>
 
-          <p class="sr-only">
-            <label>Ne pas remplir : <input name="bot-field" /></label>
-          </p>
+        <!-- Articles statiques de fond (toujours présents) -->
+        <div class="grid grid--3 veille-grid" id="veilleStatique">
 
-          <label>
-            <span>Nom</span>
-            <input type="text" name="name" placeholder="Ton nom" minlength="2" maxlength="60" required />
-          </label>
+          <article class="card veille-card" data-veille="ia-secu detection" data-aos="fade-up">
+            <div class="veille-card__header">
+              <span class="veille-card__cat veille-cat--ia-secu">IA & Sécurité</span>
+              <span class="veille-card__date">2024</span>
+            </div>
+            <h3>L'IA pour la détection automatique de vulnérabilités</h3>
+            <div class="veille-card__source"><span class="veille-source-dot"></span><span class="muted small">Source : OWASP / SecurityWeek</span></div>
+            <div class="veille-card__body">
+              <p class="muted small"><strong>Résumé :</strong> Des modèles d'IA comme CodeQL ou Semgrep analysent des millions de lignes de code pour détecter automatiquement des failles (injections SQL, XSS, CSRF) avant même le déploiement en production.</p>
+              <div class="veille-card__analyse">
+                <strong>📊 Analyse :</strong>
+                <p class="muted small">L'IA déplace la détection des failles de la phase post-déploiement à la phase de développement. Pour un développeur BTS SIO, cela change la façon d'écrire du code : l'IA surveille en temps réel.</p>
+              </div>
+              <div class="veille-card__impact">
+                <span class="impact-badge impact--critical">Impact : Critique</span>
+                <span class="veille-card__consult">Consulté en 2026</span>
+              </div>
+            </div>
+            <a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noreferrer" class="btn btn--outline btn--sm veille-card__link">Lire la source →</a>
+          </article>
 
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" placeholder="ton@email.com" maxlength="120" required />
-          </label>
+          <article class="card veille-card" data-veille="intrusion ia-secu" data-aos="fade-up" data-aos-delay="100">
+            <div class="veille-card__header">
+              <span class="veille-card__cat veille-cat--intrusion">Détection d'intrusion</span>
+              <span class="veille-card__date">2025</span>
+            </div>
+            <h3>IDS/IPS alimentés par l'IA : nouvelle génération de protection réseau</h3>
+            <div class="veille-card__source"><span class="veille-source-dot"></span><span class="muted small">Source : The Hacker News</span></div>
+            <div class="veille-card__body">
+              <p class="muted small"><strong>Résumé :</strong> Les systèmes de détection d'intrusion (IDS) nouvelle génération utilisent le machine learning pour analyser le comportement réseau en temps réel et détecter des attaques inconnues (zero-day) que les signatures classiques ne repèrent pas.</p>
+              <div class="veille-card__analyse">
+                <strong>📊 Analyse :</strong>
+                <p class="muted small">Les attaques zero-day sont les plus dangereuses car inconnues des antivirus. L'IA comportementale comble ce vide en apprenant ce qu'est un trafic "normal" pour détecter toute anomalie.</p>
+              </div>
+              <div class="veille-card__impact">
+                <span class="impact-badge impact--high">Impact : Élevé</span>
+                <span class="veille-card__consult">Consulté en 2026</span>
+              </div>
+            </div>
+            <a href="https://thehackernews.com/" target="_blank" rel="noreferrer" class="btn btn--outline btn--sm veille-card__link">Lire la source →</a>
+          </article>
 
-          <label>
-            <span>Message</span>
-            <textarea name="message" rows="5" placeholder="Ton message..." minlength="10" maxlength="1500" required></textarea>
-          </label>
+          <article class="card veille-card" data-veille="donnees detection" data-aos="fade-up" data-aos-delay="200">
+            <div class="veille-card__header">
+              <span class="veille-card__cat veille-cat--donnees">Protection des données</span>
+              <span class="veille-card__date">2025</span>
+            </div>
+            <h3>RGPD & IA : surveiller les fuites de données personnelles</h3>
+            <div class="veille-card__source"><span class="veille-source-dot"></span><span class="muted small">Source : ANSSI / CNIL</span></div>
+            <div class="veille-card__body">
+              <p class="muted small"><strong>Résumé :</strong> Des outils d'IA analysent les flux de données d'une entreprise pour détecter les accès non autorisés, les tentatives d'exfiltration et les violations du RGPD en temps réel, générant des alertes automatiques.</p>
+              <div class="veille-card__analyse">
+                <strong>📊 Analyse :</strong>
+                <p class="muted small">La conformité RGPD devient automatisée. L'IA ne remplace pas le DPO mais agit comme un moniteur permanent, ce qui réduit les risques d'amende et renforce la confiance utilisateur.</p>
+              </div>
+              <div class="veille-card__impact">
+                <span class="impact-badge impact--medium">Impact : Moyen</span>
+                <span class="veille-card__consult">Consulté en 2026</span>
+              </div>
+            </div>
+            <a href="https://www.ssi.gouv.fr/" target="_blank" rel="noreferrer" class="btn btn--outline btn--sm veille-card__link">Lire la source →</a>
+          </article>
 
-          <!-- Optionnel (si tu actives reCAPTCHA Netlify) -->
-          <!-- <div data-netlify-recaptcha="true"></div> -->
+          <article class="card veille-card" data-veille="ia-secu detection" data-aos="fade-up">
+            <div class="veille-card__header">
+              <span class="veille-card__cat veille-cat--ia-secu">IA & Sécurité</span>
+              <span class="veille-card__date">2025</span>
+            </div>
+            <h3>Pentest assisté par IA : GPT-4 pour trouver des failles web</h3>
+            <div class="veille-card__source"><span class="veille-source-dot"></span><span class="muted small">Source : Krebs on Security</span></div>
+            <div class="veille-card__body">
+              <p class="muted small"><strong>Résumé :</strong> Des chercheurs ont démontré que GPT-4 est capable d'exploiter des vulnérabilités connues (CVE) de manière autonome. Il peut lire une CVE, comprendre la faille et générer un script d'exploitation — soulevant des questions éthiques majeures.</p>
+              <div class="veille-card__analyse">
+                <strong>📊 Analyse :</strong>
+                <p class="muted small">L'IA est une arme à double tranchant : elle aide les pentesters à aller plus vite mais abaisse aussi la barrière d'entrée pour les attaquants. La communauté sécurité débat de l'encadrement éthique de ces outils.</p>
+              </div>
+              <div class="veille-card__impact">
+                <span class="impact-badge impact--critical">Impact : Critique</span>
+                <span class="veille-card__consult">Consulté en 2026</span>
+              </div>
+            </div>
+            <a href="https://krebsonsecurity.com/" target="_blank" rel="noreferrer" class="btn btn--outline btn--sm veille-card__link">Lire la source →</a>
+          </article>
 
-          <button class="btn btn--primary" type="submit">Envoyer</button>
-          <p class="muted small" id="formMsg" role="status" aria-live="polite"></p>
-        </form>
+          <article class="card veille-card" data-veille="intrusion ia-secu" data-aos="fade-up" data-aos-delay="100">
+            <div class="veille-card__header">
+              <span class="veille-card__cat veille-cat--intrusion">Détection d'intrusion</span>
+              <span class="veille-card__date">2025</span>
+            </div>
+            <h3>SOAR & IA : automatiser la réponse aux incidents de sécurité</h3>
+            <div class="veille-card__source"><span class="veille-source-dot"></span><span class="muted small">Source : SecurityWeek</span></div>
+            <div class="veille-card__body">
+              <p class="muted small"><strong>Résumé :</strong> Les plateformes SOAR (Security Orchestration, Automation and Response) intègrent l'IA pour automatiser la réponse aux alertes de sécurité : isolation d'un poste infecté, blocage d'une IP, notification des équipes — en quelques secondes.</p>
+              <div class="veille-card__analyse">
+                <strong>📊 Analyse :</strong>
+                <p class="muted small">Là où un SOC humain prend 20 minutes à réagir, l'IA agit en secondes. Cela réduit drastiquement l'impact d'une attaque. Les métiers de la cybersécurité évoluent vers la supervision d'IA plutôt que la réponse manuelle.</p>
+              </div>
+              <div class="veille-card__impact">
+                <span class="impact-badge impact--high">Impact : Élevé</span>
+                <span class="veille-card__consult">Consulté en 2026</span>
+              </div>
+            </div>
+            <a href="https://www.securityweek.com/" target="_blank" rel="noreferrer" class="btn btn--outline btn--sm veille-card__link">Lire la source →</a>
+          </article>
+
+          <!-- Synthèse -->
+          <article class="card veille-card veille-card--synthese" data-veille="all detection ia-secu intrusion donnees" data-aos="fade-up" data-aos-delay="200">
+            <div class="veille-card__header">
+              <span class="veille-card__cat veille-cat--synthese">Synthèse personnelle</span>
+              <span class="veille-card__date">2026</span>
+            </div>
+            <h3>Bilan : L'IA renforce-t-elle vraiment la cybersécurité ?</h3>
+            <div class="veille-card__source"><span class="veille-source-dot"></span><span class="muted small">Réflexion personnelle</span></div>
+            <div class="veille-card__body">
+              <p class="muted small"><strong>Conclusion :</strong> L'IA transforme la cybersécurité des deux côtés : elle améliore la détection des attaques tout en donnant aux attaquants de nouveaux outils. Pour un développeur, cela implique d'intégrer la sécurité dès la conception (Security by Design) et de comprendre les vecteurs d'attaque.</p>
+              <div class="veille-card__analyse">
+                <strong>💡 Ce que j'en retiens :</strong>
+                <p class="muted small">En tant que développeuse web, je dois systématiquement valider les entrées utilisateurs, gérer les sessions sécurisées, et utiliser des outils d'analyse statique (comme SonarQube) pour détecter les failles avant mise en production.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Articles API en temps réel -->
+        <div class="veille-api-section" data-aos="fade-up">
+          <div class="veille-api__header">
+            <h3>🔴 Dernières actualités — Flux en direct</h3>
+            <div class="veille-api__controls">
+              <span class="veille-api__count muted small" id="apiCount"></span>
+              <button class="btn btn--ghost btn--sm" id="veilleRefresh" type="button">↻ Actualiser</button>
+            </div>
+          </div>
+
+          <!-- ⚠️ IMPORTANT : Remplace YOUR_API_KEY par ta clé NewsAPI gratuite
+               Obtiens ta clé sur : https://newsapi.org/register (gratuit)
+               La clé ressemble à : a1b2c3d4e5f6789012345678901234ab -->
+          <div id="newsApiKey" data-key="8a43a8ace8df4e82b071ba29f3c35e9a" style="display:none"></div>
+
+          <div class="grid grid--3" id="veilleApiGrid">
+            <div class="veille-loader" id="veilleLoader">
+              <div class="loader-dot"></div>
+              <div class="loader-dot"></div>
+              <div class="loader-dot"></div>
+              <span class="muted small">Chargement des articles…</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <div class="section-label">// 08 — Restons en contact</div>
+          <h2>Me contacter</h2>
+          <p class="muted">Un stage, une alternance, un projet ou simplement échanger ? Écris-moi.</p>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-infos" data-aos="fade-right">
+            <div class="card contact-info-card">
+              <div class="contact-info-item">
+                <span class="contact-info-icon">✉️</span>
+                <div>
+                  <p class="contact-info-label muted small">Email</p>
+                  <a href="mailto:tangouosty@gmail.com" class="contact-info-value">tangouosty@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-icon">📍</span>
+                <div>
+                  <p class="contact-info-label muted small">Localisation</p>
+                  <span class="contact-info-value">France (Les Ulis)</span>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-icon">💼</span>
+                <div>
+                  <p class="contact-info-label muted small">LinkedIn</p>
+                  <a href="https://www.linkedin.com/in/queren-tangou-90268a22b" target="_blank" rel="noreferrer" class="contact-info-value">queren-tangou</a>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-icon">⌨️</span>
+                <div>
+                  <p class="contact-info-label muted small">GitHub</p>
+                  <a href="https://github.com/tangouosty-art" target="_blank" rel="noreferrer" class="contact-info-value">tangouosty-art</a>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <p class="muted small">
+                🟢 <strong>Disponible</strong> pour un stage ou une alternance à partir de maintenant.
+              </p>
+            </div>
+          </div>
+
+          <div class="card contact-form-card" data-aos="fade-left">
+            <!-- EmailJS — envoie directement dans ta boîte mail sans backend
+                 Inscris-toi sur emailjs.com (gratuit), crée un service + template,
+                 puis remplace les IDs ci-dessous dans le JS -->
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="user_name"><span>Nom *</span></label>
+                  <input id="user_name" name="user_name" type="text" placeholder="Ton nom" minlength="2" maxlength="60" required />
+                </div>
+                <div class="form-group">
+                  <label for="user_email"><span>Email *</span></label>
+                  <input id="user_email" name="user_email" type="email" placeholder="ton@email.com" maxlength="120" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject"><span>Sujet</span></label>
+                <input id="subject" name="subject" type="text" placeholder="Stage, projet, collaboration..." maxlength="100" />
+              </div>
+              <div class="form-group">
+                <label for="message"><span>Message *</span></label>
+                <textarea id="message" name="message" rows="5" placeholder="Ton message..." minlength="10" maxlength="1500" required></textarea>
+              </div>
+              <button class="btn btn--primary" type="submit" id="submitBtn">
+                <span id="submitText">Envoyer le message →</span>
+                <span id="submitLoader" style="display:none">⏳ Envoi...</span>
+              </button>
+              <p class="muted small" id="formMsg" role="status" aria-live="polite" style="margin-top:8px"></p>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <p class="muted small">© <span id="year"></span> Queren Tangou • Portfolio</p>
-      <a class="to-top" href="index.html#top" aria-label="Retour en haut">↑</a>
+      <a class="logo" href="#top">
+        <span class="logo__dot"></span>QT
+      </a>
+      <p class="muted small">© <span id="year"></span> Queren Tangou — Portfolio BTS SIO SLAM</p>
+      <a class="to-top" href="#top" aria-label="Retour en haut">↑</a>
     </div>
   </footer>
 
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="assets/js/main.js"></script>
-  <!-- AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 </body>
 </html>

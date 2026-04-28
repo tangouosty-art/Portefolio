@@ -221,14 +221,18 @@
   const veilleApiGrid = document.getElementById("veilleApiGrid");
   const veilleLoader = document.getElementById("veilleLoader");
   const apiCount = document.getElementById("apiCount");
-  const QUERY = "cybersecurity AI vulnerability detection OR \"faille IA\" OR \"intelligence artificielle sécurité\"";
-  const API_URL = `https://newsapi.org/v2/everything?q=${encodeURIComponent(QUERY)}&language=fr&sortBy=publishedAt&pageSize=6&apiKey=${API_KEY}`;
+  // En production : on passe par la Netlify Function (clé masquée côté serveur)
+  // En local avec clé configurée : appel direct
+  const IS_NETLIFY = window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1" && !window.location.protocol.startsWith("file");
+  const API_URL = IS_NETLIFY
+    ? "/.netlify/functions/news"
+    : `https://newsapi.org/v2/everything?q=${encodeURIComponent("cybersecurity AI vulnerability detection OR \"intelligence artificielle securite\"")}&language=fr&sortBy=publishedAt&pageSize=6&apiKey=${API_KEY}`;
 
   async function loadNewsApi() {
     if (!veilleApiGrid) return;
 
-    // Clé non configurée → afficher le guide
-    if (!API_KEY || API_KEY === "YOUR_NEWSAPI_KEY_HERE") {
+    // En local sans clé → afficher le guide
+    if (!IS_NETLIFY && (!API_KEY || API_KEY === "YOUR_NEWSAPI_KEY_HERE")) {
       showApiSetup();
       return;
     }
@@ -316,18 +320,14 @@
   });
 
   /* ════════════════════════════════════════
-     11) Contact — EmailJS
+     11) Contact — Formspree
      ─────────────────────────────────────────
-     POUR ACTIVER (réception d'emails dans ta boîte) :
-     1. Inscris-toi sur https://www.emailjs.com/ (gratuit — 200 emails/mois)
-     2. Crée un Service Email (Gmail, Outlook…)
-     3. Crée un Email Template avec les variables :
-        {{user_name}}, {{user_email}}, {{subject}}, {{message}}
-     4. Remplace les 3 identifiants ci-dessous
+     Formspree envoie les emails directement dans ta boîte
+     sans restriction de domaine, plan gratuit = 50 emails/mois
+     Remplace YOUR_FORMSPREE_ID par ton ID (ex: xpwzgkla)
+     Inscris-toi sur https://formspree.io
   ════════════════════════════════════════ */
-  const EMAILJS_SERVICE_ID  = "service_ggfgkqa";
-  const EMAILJS_TEMPLATE_ID = "template_f38jfhi";
-  const EMAILJS_PUBLIC_KEY  = "mKS4t1v9c8fp1FkIo";
+  const FORMSPREE_ID = "mdayqebe";
 
   const contactForm = document.getElementById("contactForm");
   const formMsg = document.getElementById("formMsg");
@@ -363,23 +363,35 @@
     if (message.length < 10)    return setMsg("❌ Message trop court (10 caractères minimum).");
     if (!canSend())             return setMsg("⏳ Patiente 60 secondes avant de renvoyer.");
 
-    // Clé EmailJS non configurée
-    if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
-      setMsg("⚙️ EmailJS n'est pas encore configuré. Consulte le README du ZIP pour activer la réception d'emails.", true);
+    if (FORMSPREE_ID === "YOUR_FORMSPREE_ID") {
+      setMsg("⚙️ Formspree non configuré. Inscris-toi sur formspree.io pour activer l'envoi.", true);
       return;
     }
 
-    // Afficher le loader
     if (submitText) submitText.style.display = "none";
     if (submitLoader) submitLoader.style.display = "inline";
     if (submitBtn) submitBtn.disabled = true;
 
     try {
-      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm, EMAILJS_PUBLIC_KEY);
-      setMsg("✅ Message envoyé ! Je te réponds dès que possible.", true);
-      contactForm.reset();
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          subject: contactForm.querySelector("#subject")?.value?.trim() || "(sans sujet)",
+          message
+        })
+      });
+
+      if (res.ok) {
+        setMsg("✅ Message envoyé ! Je te réponds dès que possible.", true);
+        contactForm.reset();
+      } else {
+        throw new Error("Erreur serveur");
+      }
     } catch (err) {
-      setMsg("❌ Erreur d'envoi. Essaie de m'écrire directement à tangouosty@gmail.com");
+      setMsg("❌ Erreur d'envoi. Écris-moi directement à tangouosty@gmail.com");
     } finally {
       if (submitText) submitText.style.display = "inline";
       if (submitLoader) submitLoader.style.display = "none";

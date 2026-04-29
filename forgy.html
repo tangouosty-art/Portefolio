@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercice CSS — justify-content avec Flexbox Froggy</title>
+  <link rel="stylesheet" href="assets/css/forgy.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a href="#accueil" class="logo" aria-label="Accueil">
+        <span class="logo-icon">CSS</span>
+        <span>Pratique Flexbox</span>
+      </a>
+      <div class="nav-links">
+        <a href="#objectif">Objectif</a>
+        <a href="#cours">Explication</a>
+        <a href="#valeurs">Valeurs</a>
+        <a href="#captures">Captures</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="accueil" class="page">
+    <section class="hero">
+      <div>
+        <span class="badge">🐸 Exercice CSS — Flexbox Froggy</span>
+        <h1>Comprendre <span class="gradient-text">justify-content</span></h1>
+        <p>
+          Cette page explique l’exercice de pratique CSS réalisé avec Flexbox Froggy. Le but est de déplacer les grenouilles horizontalement dans leur zone grâce à la propriété <strong>justify-content</strong>.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cours">Lire l’explication</a>
+          <a class="btn btn-secondary" href="#captures">Voir les captures</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="browser-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <img src="freboxfroggy/2025-10-23 21_11_11-Greenshot.png" alt="Capture de l'exercice Flexbox Froggy" />
+      </div>
+    </section>
+
+    <section id="objectif" class="section">
+      <div class="section-title">
+        <span class="section-number">01</span>
+        <h2>Objectif de l’exercice</h2>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Ce qu’il faut faire</h3>
+          <p>
+            Dans Flexbox Froggy, chaque grenouille doit être placée sur son nénuphar. Pour réussir, on écrit du CSS dans l’éditeur du jeu. Ici, l’exercice porte principalement sur l’alignement horizontal avec <strong>justify-content</strong>.
+          </p>
+          <ul>
+            <li>Déplacer les éléments vers la gauche, le centre ou la droite.</li>
+            <li>Répartir plusieurs éléments avec des espaces réguliers.</li>
+            <li>Comprendre l’axe principal d’un conteneur Flexbox.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>La règle à retenir</h3>
+          <p>
+            <strong>justify-content</strong> agit sur l’axe principal. Par défaut, l’axe principal est horizontal parce que <strong>flex-direction</strong> vaut <strong>row</strong>.
+          </p>
+          <div class="code-box">
+            <pre><code>.pond {display: flex;
+              justify-content: center;}</code>
+            </pre>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="cours" class="section">
+      <div class="section-title">
+        <span class="section-number">02</span>
+        <h2>Explication simple</h2>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Pourquoi utiliser <span class="highlight">display: flex</span> ?</h3>
+          <p>
+            Avant d’utiliser <strong>justify-content</strong>, il faut transformer le parent en conteneur flexible. Sans <strong>display: flex</strong>, la propriété ne fonctionne pas correctement sur les éléments enfants.
+          </p>
+          <div class="code-box">
+            <pre><code>.container {
+  display: flex;
+}</code></pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Comment choisir la bonne valeur ?</h3>
+          <ol>
+            <li>Regarde où les grenouilles doivent aller.</li>
+            <li>Si elles vont à droite : utilise <strong>flex-end</strong>.</li>
+            <li>Si elles vont au centre : utilise <strong>center</strong>.</li>
+            <li>Si elles doivent être espacées : utilise <strong>space-between</strong>, <strong>space-around</strong> ou <strong>space-evenly</strong>.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section id="valeurs" class="section">
+      <div class="section-title">
+        <span class="section-number">03</span>
+        <h2>Les valeurs importantes</h2>
+      </div>
+
+      <div class="value-grid">
+        <article class="value-card">
+          <h3>justify-content: flex-start;</h3>
+          <p>Les éléments restent au début du conteneur, donc à gauche par défaut.</p>
+          <div class="demo-row flex-start"><span class="frog">🐸</span><span class="frog">🐸</span><span class="frog">🐸</span></div>
+        </article>
+
+        <article class="value-card">
+          <h3>justify-content: flex-end;</h3>
+          <p>Les éléments vont à la fin du conteneur, donc à droite par défaut.</p>
+          <div class="demo-row flex-end"><span class="frog">🐸</span><span class="frog">🐸</span><span class="frog">🐸</span></div>
+        </article>
+
+        <article class="value-card">
+          <h3>justify-content: center;</h3>
+          <p>Les éléments sont regroupés au centre du conteneur.</p>
+          <div class="demo-row center"><span class="frog">🐸</span><span class="frog">🐸</span><span class="frog">🐸</span></div>
+        </article>
+
+        <article class="value-card">
+          <h3>justify-content: space-between;</h3>
+          <p>Le premier élément va au début, le dernier à la fin, et l’espace est au milieu.</p>
+          <div class="demo-row space-between"><span class="frog">🐸</span><span class="frog">🐸</span><span class="frog">🐸</span></div>
+        </article>
+
+        <article class="value-card">
+          <h3>justify-content: space-around;</h3>
+          <p>Chaque élément reçoit de l’espace autour de lui.</p>
+          <div class="demo-row space-around"><span class="frog">🐸</span><span class="frog">🐸</span><span class="frog">🐸</span></div>
+        </article>
+
+        <article class="value-card">
+          <h3>justify-content: space-evenly;</h3>
+          <p>Tous les espaces sont égaux : avant, entre et après les éléments.</p>
+          <div class="demo-row space-evenly"><span class="frog">🐸</span><span class="frog">🐸</span><span class="frog">🐸</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="section-number">04</span>
+        <h2>Exercice à reproduire</h2>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Consigne</h3>
+          <p>
+            Crée un conteneur avec trois éléments, puis teste les différentes valeurs de <strong>justify-content</strong>. Observe comment les éléments se déplacent horizontalement.
+          </p>
+          <div class="code-box">
+            <pre><code>&lt;div class="zone"&gt;
+  &lt;div class="item"&gt;1&lt;/div&gt;
+  &lt;div class="item"&gt;2&lt;/div&gt;
+  &lt;div class="item"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Code CSS</h3>
+          <div class="code-box">
+            <pre><code>.zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  padding: 20px;
+}
+
+.item {
+  width: 50px;
+  height: 50px;
+}</code></pre>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="captures" class="section">
+      <div class="section-title">
+        <span class="section-number">05</span>
+        <h2>Captures de l’exercice</h2>
+      </div>
+      <p style="color: var(--muted); margin-bottom: 20px; max-width: 780px;">
+        Voici les captures utilisées pour illustrer la progression dans Flexbox Froggy. Elles montrent différents cas où les grenouilles doivent être placées à gauche, à droite, au centre ou réparties dans la zone.
+      </p>
+
+      <div class="gallery">
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_09_08-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_09_08-Greenshot.png" alt="Capture Flexbox Froggy 1" /></a><figcaption>Capture 01</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_10_44-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_10_44-Greenshot.png" alt="Capture Flexbox Froggy 2" /></a><figcaption>Capture 02</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_11_11-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_11_11-Greenshot.png" alt="Capture Flexbox Froggy 3" /></a><figcaption>Capture 03</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_11_33-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_11_33-Greenshot.png" alt="Capture Flexbox Froggy 4" /></a><figcaption>Capture 04</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_11_51-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_11_51-Greenshot.png" alt="Capture Flexbox Froggy 5" /></a><figcaption>Capture 05</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_12_12-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_12_12-Greenshot.png" alt="Capture Flexbox Froggy 6" /></a><figcaption>Capture 06</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_12_31-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_12_31-Greenshot.png" alt="Capture Flexbox Froggy 7" /></a><figcaption>Capture 07</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_12_48-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_12_48-Greenshot.png" alt="Capture Flexbox Froggy 8" /></a><figcaption>Capture 08</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_13_02-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_13_02-Greenshot.png" alt="Capture Flexbox Froggy 9" /></a><figcaption>Capture 09</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_13_18-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_13_18-Greenshot.png" alt="Capture Flexbox Froggy 10" /></a><figcaption>Capture 10</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_14_15-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_14_15-Greenshot.png" alt="Capture Flexbox Froggy 11" /></a><figcaption>Capture 11</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_14_31-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_14_31-Greenshot.png" alt="Capture Flexbox Froggy 12" /></a><figcaption>Capture 12</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_14_58-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_14_58-Greenshot.png" alt="Capture Flexbox Froggy 13" /></a><figcaption>Capture 13</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_15_17-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_15_17-Greenshot.png" alt="Capture Flexbox Froggy 14" /></a><figcaption>Capture 14</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_15_37-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_15_37-Greenshot.png" alt="Capture Flexbox Froggy 15" /></a><figcaption>Capture 15</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_16_00-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_16_00-Greenshot.png" alt="Capture Flexbox Froggy 16" /></a><figcaption>Capture 16</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_16_36-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_16_36-Greenshot.png" alt="Capture Flexbox Froggy 17" /></a><figcaption>Capture 17</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-23%2021_16_51-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-23%2021_16_51-Greenshot.png" alt="Capture Flexbox Froggy 18" /></a><figcaption>Capture 18</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-24%2013_22_26-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-24%2013_22_26-Greenshot.png" alt="Capture Flexbox Froggy 19" /></a><figcaption>Capture 19</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-24%2013_24_08-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-24%2013_24_08-Greenshot.png" alt="Capture Flexbox Froggy 20" /></a><figcaption>Capture 20</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-24%2013_24_45-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-24%2013_24_45-Greenshot.png" alt="Capture Flexbox Froggy 21" /></a><figcaption>Capture 21</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-24%2013_25_18-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-24%2013_25_18-Greenshot.png" alt="Capture Flexbox Froggy 22" /></a><figcaption>Capture 22</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-24%2013_26_32-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-24%2013_26_32-Greenshot.png" alt="Capture Flexbox Froggy 23" /></a><figcaption>Capture 23</figcaption></figure>
+        <figure class="shot"><a href="freboxfroggy/2025-10-24%2013_30_08-Greenshot.png" target="_blank"><img src="freboxfroggy/2025-10-24%2013_30_08-Greenshot.png" alt="Capture Flexbox Froggy 24" /></a><figcaption>Capture 24</figcaption></figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Page d’explication — Exercice CSS <strong>justify-content</strong> avec Flexbox Froggy.</p>
+  </footer>
+</body>
+</html>

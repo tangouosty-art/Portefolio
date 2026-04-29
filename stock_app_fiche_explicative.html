@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fiche explicative — Stock-App</title>
+  <meta name="description" content="Page HTML explicative du projet Stock-App : application PHP/MySQL de gestion de stock avec authentification, rôles, produits, fournisseurs, mouvements et caisse." />
+  <style>
+    :root{
+      --bg:#07111f;
+      --bg2:#0c1728;
+      --card:#111d2f;
+      --card2:#0d192a;
+      --line:rgba(148,163,184,.22);
+      --text:#eef6ff;
+      --muted:#9fb0c7;
+      --blue:#4aa3ff;
+      --blue2:#2563eb;
+      --cyan:#22d3ee;
+      --green:#22c55e;
+      --red:#ef4444;
+      --yellow:#facc15;
+      --shadow:0 24px 70px rgba(0,0,0,.42);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(37,99,235,.28), transparent 32%),
+        radial-gradient(circle at 88% 12%, rgba(34,211,238,.14), transparent 28%),
+        linear-gradient(135deg, #050a12 0%, var(--bg) 48%, #081827 100%);
+      color:var(--text);
+      line-height:1.65;
+    }
+
+    a{color:inherit}
+    .page{width:min(1120px, calc(100% - 32px)); margin:0 auto; padding:28px 0 54px}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter: blur(18px);
+      background:rgba(5,10,18,.68);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{
+      width:min(1120px, calc(100% - 32px));
+      margin:0 auto;
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.2px}
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(74,163,255,.25), rgba(34,211,238,.08));
+      border:1px solid rgba(74,163,255,.36);
+      box-shadow:0 0 26px rgba(74,163,255,.2) inset;
+      color:#8cc8ff;
+      font-weight:900;
+    }
+    .nav{display:flex; gap:14px; flex-wrap:wrap; font-size:14px; color:var(--muted)}
+    .nav a{text-decoration:none; padding:8px 10px; border-radius:999px}
+    .nav a:hover{background:rgba(148,163,184,.12); color:var(--text)}
+
+    .hero{
+      min-height:560px;
+      display:grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap:34px;
+      align-items:center;
+      padding:64px 0 42px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 13px;
+      border-radius:999px;
+      background:rgba(74,163,255,.13);
+      border:1px solid rgba(74,163,255,.36);
+      color:#bfe1ff;
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.35px;
+      text-transform:uppercase;
+    }
+    h1,h2,h3{line-height:1.12; margin:0}
+    h1{
+      margin-top:18px;
+      font-size:clamp(44px, 7vw, 82px);
+      letter-spacing:-4px;
+    }
+    .gradient{
+      background:linear-gradient(90deg, #fff 0%, #91c7ff 35%, #3b82f6 72%, #22d3ee 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .lead{
+      color:#bfd0e5;
+      font-size:clamp(18px, 2.1vw, 22px);
+      max-width:640px;
+      margin:22px 0 0;
+    }
+    .hero-actions{display:flex; gap:14px; margin-top:30px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 18px;
+      border-radius:16px;
+      text-decoration:none;
+      font-weight:900;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, var(--blue2), #0ea5e9);
+      border-color:rgba(147,197,253,.55);
+      box-shadow:0 18px 48px rgba(37,99,235,.28);
+    }
+
+    .project-card{
+      position:relative;
+      border:1px solid rgba(148,163,184,.22);
+      border-radius:32px;
+      background:linear-gradient(180deg, rgba(17,29,47,.94), rgba(8,17,31,.92));
+      padding:22px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .project-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:radial-gradient(circle at 26% 8%, rgba(74,163,255,.38), transparent 24%), radial-gradient(circle at 90% 20%, rgba(34,211,238,.18), transparent 26%);
+      pointer-events:none;
+      opacity:.7;
+    }
+    .mockup{position:relative; z-index:1; display:grid; gap:16px}
+    .browser{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(148,163,184,.25);
+      background:#07101f;
+      box-shadow:0 20px 40px rgba(0,0,0,.25);
+    }
+    .browser-head{
+      min-height:38px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      padding:0 12px;
+      background:rgba(255,255,255,.04);
+      border-bottom:1px solid rgba(148,163,184,.12);
+    }
+    .dots{display:flex; gap:7px}
+    .dot{width:10px; height:10px; border-radius:50%}
+    .dot.red{background:#ff5f57}.dot.yellow{background:#ffbd2e}.dot.green{background:#28c840}
+    .browser-title{font-size:12px; color:#9fb0c7; font-weight:700}
+    .screen{padding:18px}
+    .tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px}
+    .tab{font-size:12px; padding:7px 10px; border-radius:999px; color:#a8bad3; border:1px solid rgba(148,163,184,.17)}
+    .tab.active{background:rgba(74,163,255,.18); color:#d8ecff; border-color:rgba(74,163,255,.4)}
+    .kpis{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin-bottom:14px}
+    .kpi{padding:12px; border-radius:14px; background:rgba(148,163,184,.08); border:1px solid rgba(148,163,184,.13)}
+    .kpi strong{display:block; font-size:20px}.kpi span{font-size:12px; color:#9fb0c7}
+    .table{border:1px solid rgba(148,163,184,.12); border-radius:14px; overflow:hidden}
+    .row{display:grid; grid-template-columns:1.3fr .8fr .6fr .6fr; gap:10px; padding:10px 12px; border-bottom:1px solid rgba(148,163,184,.1); font-size:12px; color:#cbd5e1}
+    .row.head{background:rgba(74,163,255,.10); color:#e8f4ff; font-weight:800}
+    .row:last-child{border-bottom:0}
+    .ok{color:#3ee283}.warn{color:#fbbf24}.danger{color:#fb7185}
+    .side-windows{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    .mini{padding:15px; border-radius:18px; border:1px solid rgba(148,163,184,.18); background:rgba(255,255,255,.04)}
+    .mini h3{font-size:16px; margin-bottom:12px}
+    .form-line{height:36px; border-radius:10px; background:rgba(15,23,42,.9); border:1px solid rgba(148,163,184,.14); margin:8px 0}
+    .chart{height:120px; border-radius:14px; background:linear-gradient(180deg, rgba(74,163,255,.18), rgba(74,163,255,.04)); position:relative; overflow:hidden; border:1px solid rgba(74,163,255,.16)}
+    .bar{position:absolute; bottom:14px; width:18px; border-radius:8px 8px 2px 2px; background:linear-gradient(180deg,#60a5fa,#2563eb)}
+    .bar:nth-child(1){left:22px;height:48px}.bar:nth-child(2){left:58px;height:72px}.bar:nth-child(3){left:94px;height:36px}.bar:nth-child(4){left:130px;height:84px}.bar:nth-child(5){left:166px;height:60px}
+
+    section{margin-top:34px}
+    .section-head{display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:18px}
+    .eyebrow{color:var(--blue); font-weight:900; letter-spacing:.18em; text-transform:uppercase; font-size:13px}
+    h2{font-size:clamp(28px, 3.4vw, 44px); letter-spacing:-1.5px; margin-top:8px}
+    .subtitle{color:var(--muted); max-width:720px; margin:10px 0 0}
+
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+    .card{
+      background:linear-gradient(180deg, rgba(17,29,47,.86), rgba(10,20,35,.86));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:0 16px 48px rgba(0,0,0,.22);
+    }
+    .card h3{font-size:20px; margin-bottom:10px}
+    .card p{color:#b7c6db; margin:0}
+    .icon{
+      width:46px; height:46px; display:grid; place-items:center; border-radius:14px;
+      background:rgba(74,163,255,.12); border:1px solid rgba(74,163,255,.32);
+      color:#92ccff; font-size:22px; margin-bottom:14px;
+    }
+    ul{margin:12px 0 0; padding-left:20px; color:#b7c6db}
+    li{margin:8px 0}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .chip{padding:8px 12px; border-radius:999px; background:rgba(148,163,184,.08); border:1px solid var(--line); color:#cbd5e1; font-weight:800; font-size:13px}
+
+    .timeline{display:grid; gap:12px}
+    .step{display:grid; grid-template-columns:56px 1fr; gap:14px; align-items:start}
+    .num{width:44px;height:44px;border-radius:14px; display:grid; place-items:center; font-weight:900; color:#fff; background:linear-gradient(135deg, #2563eb, #0ea5e9); box-shadow:0 10px 28px rgba(37,99,235,.22)}
+    .step-content{padding:18px; border-radius:18px; border:1px solid var(--line); background:rgba(255,255,255,.035)}
+    .step-content h3{font-size:18px; margin-bottom:6px}.step-content p{margin:0; color:#b7c6db}
+
+    .schema{
+      display:grid;
+      grid-template-columns:1fr auto 1fr auto 1fr;
+      gap:12px;
+      align-items:center;
+      margin-top:14px;
+    }
+    .box{padding:18px; border-radius:18px; background:rgba(255,255,255,.04); border:1px solid var(--line); text-align:center; min-height:92px; display:grid; place-items:center}
+    .arrow{font-size:30px; color:#60a5fa; font-weight:900}
+    .code{
+      margin-top:16px;
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(74,163,255,.22);
+      background:#030712;
+      overflow:auto;
+      color:#dbeafe;
+      font-family:"SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size:14px;
+    }
+    .db-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:14px}
+    .db-table{border:1px solid var(--line); border-radius:18px; padding:16px; background:rgba(2,6,23,.28)}
+    .db-table strong{display:block; color:#eaf4ff; margin-bottom:8px}
+    .db-table span{display:block; color:#9fb0c7; font-size:14px; margin:4px 0}
+
+    .footer{
+      margin-top:44px;
+      padding:24px;
+      border-radius:24px;
+      border:1px solid rgba(74,163,255,.24);
+      background:linear-gradient(135deg, rgba(37,99,235,.18), rgba(34,211,238,.08));
+      color:#cbd5e1;
+      text-align:center;
+    }
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr; padding-top:38px}
+      .grid-3,.grid-2,.db-grid{grid-template-columns:1fr}
+      .schema{grid-template-columns:1fr}
+      .arrow{transform:rotate(90deg); text-align:center}
+      h1{letter-spacing:-2px}
+      .side-windows{grid-template-columns:1fr}
+      .topbar-inner{align-items:flex-start; flex-direction:column; padding:14px 0}
+    }
+    @media print{
+      body{background:#fff;color:#111}.topbar,.hero-actions{display:none}.card,.project-card,.step-content,.footer{box-shadow:none;background:#fff;color:#111;border-color:#ddd}.lead,.subtitle,.card p,li,.step-content p{color:#333}.page{width:100%;padding:0}.hero{min-height:auto;display:block}.gradient{color:#111;background:none}.mockup{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><div class="logo">SA</div><span>Stock-App — Fiche explicative</span></div>
+      <nav class="nav" aria-label="Navigation interne">
+        <a href="#presentation">Présentation</a>
+        <a href="#fonctionnalites">Fonctionnalités</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#securite">Sécurité</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero" id="presentation">
+      <div>
+        <span class="badge">Projet académique • PHP • MySQL</span>
+        <h1><span class="gradient">Stock-App</span></h1>
+        <p class="lead">
+          Stock-App est une application web de gestion de stock permettant de suivre les produits,
+          les fournisseurs, les mouvements d’entrée/sortie, les alertes de seuil et les ventes via une interface de caisse.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#fonctionnalites">Voir les fonctionnalités →</a>
+          <a class="btn" href="#architecture">Comprendre l’architecture</a>
+        </div>
+      </div>
+
+      <div class="project-card" aria-label="Illustration de l'interface Stock-App">
+        <div class="mockup">
+          <div class="browser">
+            <div class="browser-head">
+              <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="browser-title">stock-app.local/dashboard</div>
+            </div>
+            <div class="screen">
+              <div class="tabs"><span class="tab active">Dashboard</span><span class="tab">Produits</span><span class="tab">Fournisseurs</span><span class="tab">Mouvements</span><span class="tab">Caisse</span></div>
+              <div class="kpis">
+                <div class="kpi"><strong>7</strong><span>Produits</span></div>
+                <div class="kpi"><strong class="warn">3</strong><span>Alertes seuil</span></div>
+                <div class="kpi"><strong class="ok">18 540 €</strong><span>Valeur stock</span></div>
+              </div>
+              <div class="table">
+                <div class="row head"><span>Produit</span><span>Référence</span><span>Stock</span><span>Seuil</span></div>
+                <div class="row"><span>Clavier Logitech K120</span><span>CLV-120</span><span class="ok">45</span><span>10</span></div>
+                <div class="row"><span>Souris optique</span><span>SOU-009</span><span class="ok">120</span><span>20</span></div>
+                <div class="row"><span>Imprimante HP 2130</span><span>IMP-2130</span><span class="danger">2</span><span>5</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="side-windows">
+            <div class="mini"><h3>Nouveau mouvement</h3><div class="form-line"></div><div class="form-line"></div><div class="form-line"></div></div>
+            <div class="mini"><h3>Reporting stock</h3><div class="chart"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Objectif</div>
+          <h2>Pourquoi ce projet ?</h2>
+          <p class="subtitle">
+            L’objectif est de proposer une solution simple pour gérer un petit stock en temps réel.
+            L’application centralise les informations essentielles afin d’éviter les ruptures de stock,
+            de tracer les entrées/sorties et de sécuriser l’accès selon le rôle de l’utilisateur.
+          </p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="icon">📦</div>
+          <h3>Gestion des produits</h3>
+          <p>Création et consultation des produits avec référence, seuil d’alerte et prix unitaire.</p>
+        </article>
+        <article class="card">
+          <div class="icon">↕️</div>
+          <h3>Suivi du stock</h3>
+          <p>Calcul automatique du stock actuel à partir des mouvements d’entrée et de sortie.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧾</div>
+          <h3>Caisse vendeur</h3>
+          <p>Enregistrement des ventes, vérification du stock disponible et génération d’un reçu imprimable.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="fonctionnalites">
+      <div class="eyebrow">Fonctionnalités principales</div>
+      <h2>Ce que permet Stock-App</h2>
+      <div class="grid-2" style="margin-top:18px;">
+        <article class="card">
+          <h3>Administrateur</h3>
+          <ul>
+            <li>Accès au tableau de bord.</li>
+            <li>Gestion des produits : ajout et liste des produits.</li>
+            <li>Gestion des fournisseurs : ajout, modification et suppression.</li>
+            <li>Ajout des mouvements de stock : entrée ou sortie.</li>
+            <li>Affichage des alertes lorsque le stock devient inférieur ou égal au seuil défini.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Vendeur</h3>
+          <ul>
+            <li>Accès uniquement à la page caisse.</li>
+            <li>Saisie du client et du mode de paiement.</li>
+            <li>Ajout de plusieurs produits dans une vente.</li>
+            <li>Contrôle automatique du stock avant validation.</li>
+            <li>Création d’une vente et impression du reçu.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Technologies utilisées</div>
+      <h2>Stack technique du projet</h2>
+      <div class="grid-3" style="margin-top:18px;">
+        <article class="card">
+          <div class="icon">🐘</div>
+          <h3>PHP</h3>
+          <p>PHP est utilisé côté serveur pour traiter les formulaires, gérer les sessions et communiquer avec la base de données.</p>
+          <div class="chips"><span class="chip">Sessions</span><span class="chip">PDO</span><span class="chip">Formulaires</span></div>
+        </article>
+        <article class="card">
+          <div class="icon">🗄️</div>
+          <h3>MySQL</h3>
+          <p>MySQL stocke les utilisateurs, produits, fournisseurs, mouvements, ventes et lignes de vente.</p>
+          <div class="chips"><span class="chip">Tables relationnelles</span><span class="chip">Requêtes SQL</span></div>
+        </article>
+        <article class="card">
+          <div class="icon">🎨</div>
+          <h3>HTML & CSS</h3>
+          <p>HTML structure les pages et CSS améliore la lisibilité de l’interface avec des cartes, tableaux et formulaires.</p>
+          <div class="chips"><span class="chip">Responsive</span><span class="chip">Interface web</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="eyebrow">Architecture</div>
+      <h2>Organisation du projet</h2>
+      <p class="subtitle">
+        Le projet suit une organisation simple : des fichiers communs pour la configuration, l’authentification et l’affichage,
+        puis des pages fonctionnelles pour chaque module métier.
+      </p>
+
+      <div class="schema">
+        <div class="box"><strong>Navigateur</strong><br><span>Formulaires HTML/CSS</span></div>
+        <div class="arrow">→</div>
+        <div class="box"><strong>PHP</strong><br><span>Traitement, sécurité, sessions</span></div>
+        <div class="arrow">→</div>
+        <div class="box"><strong>MySQL</strong><br><span>Données relationnelles</span></div>
+      </div>
+
+      <div class="grid-2" style="margin-top:16px;">
+        <article class="card">
+          <h3>Fichiers importants</h3>
+          <ul>
+            <li><strong>config.php</strong> : connexion à la base de données avec PDO.</li>
+            <li><strong>auth.php</strong> : vérification des rôles administrateur et vendeur.</li>
+            <li><strong>header.php / footer.php</strong> : structure commune des pages.</li>
+            <li><strong>login.php / logout.php</strong> : connexion et déconnexion.</li>
+            <li><strong>index.php</strong> : tableau de bord et alertes de stock.</li>
+            <li><strong>produits.php</strong> : gestion des produits.</li>
+            <li><strong>fournisseurs.php</strong> : gestion des fournisseurs.</li>
+            <li><strong>mouvements.php</strong> : entrées et sorties de stock.</li>
+            <li><strong>caisse.php</strong> : ventes, contrôle du stock et reçu.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Principe de calcul du stock</h3>
+          <p>Le stock n’est pas saisi manuellement. Il est calculé à partir des mouvements enregistrés.</p>
+          <div class="code">stock_actuel = total_des_entrées - total_des_sorties</div>
+          <p style="margin-top:14px;">Cela permet de garder une trace des changements et de mieux justifier l’état du stock.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Base de données</div>
+      <h2>Modèle de données utilisé</h2>
+      <p class="subtitle">
+        Le projet repose sur une base relationnelle. Chaque vente est liée à un vendeur et possède plusieurs lignes de vente.
+        Les mouvements de stock permettent de connaître l’évolution du stock.
+      </p>
+      <div class="db-grid">
+        <div class="db-table"><strong>users</strong><span>id</span><span>username</span><span>password_hash</span><span>role</span><span>actif</span></div>
+        <div class="db-table"><strong>produits</strong><span>id</span><span>nom</span><span>reference</span><span>seuil_alerte</span><span>prix_unitaire</span></div>
+        <div class="db-table"><strong>fournisseurs</strong><span>id</span><span>nom</span><span>email</span><span>telephone</span></div>
+        <div class="db-table"><strong>mouvements_stock</strong><span>id</span><span>produit_id</span><span>fournisseur_id</span><span>type_mouvement</span><span>quantite</span></div>
+        <div class="db-table"><strong>ventes</strong><span>id</span><span>vendeur_id</span><span>client_nom</span><span>total</span><span>mode_paiement</span></div>
+        <div class="db-table"><strong>vente_lignes</strong><span>id</span><span>vente_id</span><span>produit_id</span><span>quantite</span><span>sous_total</span></div>
+      </div>
+    </section>
+
+    <section id="securite">
+      <div class="eyebrow">Sécurité</div>
+      <h2>Mesures déjà présentes</h2>
+      <div class="grid-3" style="margin-top:18px;">
+        <article class="card">
+          <div class="icon">🔐</div>
+          <h3>Authentification</h3>
+          <p>La connexion vérifie les identifiants et utilise les sessions PHP pour maintenir l’utilisateur connecté.</p>
+        </article>
+        <article class="card">
+          <div class="icon">👤</div>
+          <h3>Gestion des rôles</h3>
+          <p>Les fonctions <strong>require_admin()</strong> et <strong>require_vendeur()</strong> empêchent l’accès aux pages non autorisées.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🛡️</div>
+          <h3>Requêtes préparées</h3>
+          <p>Les insertions, modifications et suppressions passent par PDO avec des requêtes préparées pour limiter les injections SQL.</p>
+        </article>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <h3>Améliorations possibles</h3>
+        <ul>
+          <li>Ajouter un jeton CSRF sur les formulaires sensibles.</li>
+          <li>Éviter la suppression par lien GET et utiliser un formulaire POST sécurisé.</li>
+          <li>Ajouter une page de rapport plus complète avec filtres par période.</li>
+          <li>Prévoir un export PDF ou CSV des stocks et ventes.</li>
+          <li>Améliorer davantage le responsive design pour mobile.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Parcours utilisateur</div>
+      <h2>Déroulement d’une utilisation</h2>
+      <div class="timeline" style="margin-top:18px;">
+        <div class="step"><div class="num">1</div><div class="step-content"><h3>Connexion</h3><p>L’utilisateur saisit son identifiant et son mot de passe. Selon son rôle, il est redirigé vers le tableau de bord ou la caisse.</p></div></div>
+        <div class="step"><div class="num">2</div><div class="step-content"><h3>Administration du stock</h3><p>L’administrateur ajoute les produits, renseigne les fournisseurs et enregistre les mouvements d’entrée ou de sortie.</p></div></div>
+        <div class="step"><div class="num">3</div><div class="step-content"><h3>Contrôle des alertes</h3><p>Le tableau de bord affiche les produits dont le stock est inférieur ou égal au seuil d’alerte.</p></div></div>
+        <div class="step"><div class="num">4</div><div class="step-content"><h3>Vente en caisse</h3><p>Le vendeur sélectionne les produits, l’application vérifie le stock disponible, enregistre la vente et génère les sorties de stock.</p></div></div>
+      </div>
+    </section>
+
+    <section id="oral">
+      <div class="eyebrow">Résumé</div>
+      <article class="card" style="margin-top:18px;">
+        <p>
+          « Stock-App est une application web développée en PHP avec une base de données MySQL.
+          Elle permet de gérer un stock de produits à travers plusieurs modules : les produits, les fournisseurs,
+          les mouvements d’entrée/sortie, le tableau de bord et la caisse. L’application intègre une authentification
+          avec deux rôles : l’administrateur, qui gère le stock, et le vendeur, qui accède à la caisse. Le stock actuel
+          est calculé automatiquement grâce aux mouvements enregistrés. Lors d’une vente, l’application vérifie que le stock
+          est suffisant avant de valider l’opération, puis elle crée une sortie de stock. Ce projet m’a permis de travailler
+          la logique métier, les requêtes SQL, les sessions PHP, la sécurisation des accès et l’organisation d’une application web. »
+        </p>
+      </article>
+    </section>
+
+    <div class="footer">
+      <strong>Stock-App</strong> — Application de gestion de stock avec PHP, MySQL, HTML/CSS et logique de rôles administrateur/vendeur.
+    </div>
+  </main>
+</body>
+</html>
